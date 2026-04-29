@@ -1,0 +1,325 @@
+:root {
+  --bg: #090a0f;
+  --text: #ffffff;
+  --glass-bg: rgba(25, 25, 35, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: var(--text);
+}
+
+/* 3D Canvas */
+#app-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* UI Overlay */
+#ui-container {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 20px 40px;
+  border-radius: 24px;
+}
+
+#ui-container h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 900;
+  background: -webkit-linear-gradient(45deg, #FF6B6B, #FFD93D);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#ui-container p {
+  margin: 8px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4a5568;
+}
+
+/* Tooltip for Hover Info */
+#tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  pointer-events: none;
+  /* So it doesn't block raycasting */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  min-width: 200px;
+}
+
+#tooltip.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#tooltip-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-info h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.tooltip-info p {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.positive {
+  color: #10B981;
+}
+
+.negative {
+  color: #EF4444;
+}
+
+/* Loading / Misc */
+.logo {
+  display: none;
+}
+
+/* Star Wars Intro */
+#intro-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background: transparent; /* Show three.js space background behind */
+  pointer-events: auto;
+}
+
+.fade {
+  position: absolute;
+  width: 100%;
+  height: 30vh;
+  top: 0;
+  background-image: linear-gradient(0deg, transparent, var(--bg));
+  z-index: 51;
+}
+
+.star-wars {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #feda4a; /* Star Wars Yellow */
+  font-family: 'Outfit', sans-serif;
+  perspective: 600px;
+  text-align: center;
+}
+
+.crawl {
+  position: relative;
+  top: 100%; /* Start off-screen */
+  transform-origin: 50% 100%;
+  animation: crawl 20s linear forwards;
+  width: 80%;
+  max-width: 800px;
+}
+
+.crawl .intro-title h1 {
+  font-size: 60px;
+  margin-bottom: 50px;
+  text-shadow: 0 0 10px rgba(254, 218, 74, 0.5);
+}
+
+.crawl .intro-title p {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.crawl .crawl-item {
+  margin-bottom: 40px;
+}
+
+.crawl .crawl-item h2 {
+  font-size: 36px;
+  margin: 0 0 10px 0;
+}
+
+.crawl .crawl-item p {
+  font-size: 24px;
+  margin: 0;
+  color: #fff; /* White for readability */
+}
+
+@keyframes crawl {
+  0% {
+    top: 100%;
+    transform: rotateX(25deg) translateZ(0);
+  }
+  100% { 
+    top: -200%;
+    transform: rotateX(25deg) translateZ(-1000px);
+  }
+}
+
+#skip-button {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  padding: 12px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 60;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+#skip-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Sidebar List */
+#sidebar-container {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 280px;
+  max-height: calc(100vh - 80px);
+  z-index: 10;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 20px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar-container h2 {
+  margin: 0 0 15px 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#sidebar-list {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 10px;
+}
+
+/* Custom Scrollbar for sidebar */
+#sidebar-list::-webkit-scrollbar {
+  width: 4px;
+}
+#sidebar-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+#sidebar-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.sidebar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-item:last-child {
+  border-bottom: none;
+}
+
+.sidebar-item-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-item-rank {
+  font-size: 12px;
+  color: #a0aec0;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.sidebar-item-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.sidebar-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.sidebar-item-price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #e2e8f0;
+}
+
+.sidebar-item-change {
+  font-size: 12px;
+  font-weight: bold;
+}
