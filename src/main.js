@@ -4,12 +4,25 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import gsap from 'gsap';
 
-// Mock Data
-const stocks = [
-  { id: 'TSLA', name: 'Tesla Inc', symbol: 'TSLA', price: '$210.20', change: '+5.10%', color: '#E82127', rank: 2, height: 1.5, pos: -2.5, podiumColor: 0xC0C0C0 }, // 2nd
-  { id: 'AAPL', name: 'Apple Inc', symbol: 'AAPL', price: '$180.50', change: '+2.40%', color: '#555555', rank: 1, height: 2.2, pos: 0, podiumColor: 0xFFD700 }, // 1st
-  { id: 'GOOG', name: 'Alphabet', symbol: 'GOOG', price: '$135.40', change: '+1.20%', color: '#4285F4', rank: 3, height: 1.0, pos: 2.5, podiumColor: 0xcd7f32 }, // 3rd
-];
+// Real data will be fetched, initialize empty arrays
+let stocks = [];
+let top10Stocks = [];
+
+// Helper function to map top 3 stocks to 3D podium format
+function mapToPodiumFormat(top3) {
+  const colors = ['#E82127', '#555555', '#4285F4']; // Mock colors
+  const podiumColors = [0xFFD700, 0xC0C0C0, 0xcd7f32]; // Gold, Silver, Bronze
+  const heights = [2.2, 1.5, 1.0];
+  const positions = [0, -2.5, 2.5]; // Center, Left, Right
+  
+  // order by rank: 1st, 2nd, 3rd
+  // However, rendering order in 3D: [2nd, 1st, 3rd] so positions match
+  const orderedFor3D = [];
+  if(top3.length > 1) orderedFor3D.push({...top3[1], color: colors[0], height: heights[1], pos: positions[1], podiumColor: podiumColors[1]}); // 2nd
+  if(top3.length > 0) orderedFor3D.push({...top3[0], color: colors[1], height: heights[0], pos: positions[0], podiumColor: podiumColors[0]}); // 1st
+  if(top3.length > 2) orderedFor3D.push({...top3[2], color: colors[2], height: heights[2], pos: positions[2], podiumColor: podiumColors[2]}); // 3rd
+  return orderedFor3D;
+}
 
 // Scene Setup
 const canvas = document.querySelector('#app-canvas');
@@ -108,20 +121,6 @@ function createLogoTexture(symbol, bgColor) {
   return new THREE.CanvasTexture(c);
 }
 
-// Top 10 Mock Data for Intro
-const top10Stocks = [
-  { rank: 1, name: 'Apple Inc', symbol: 'AAPL', price: '$180.50', change: '+2.40%' },
-  { rank: 2, name: 'Tesla Inc', symbol: 'TSLA', price: '$210.20', change: '+5.10%' },
-  { rank: 3, name: 'Alphabet', symbol: 'GOOG', price: '$135.40', change: '+1.20%' },
-  { rank: 4, name: 'NVIDIA Corp', symbol: 'NVDA', price: '$450.10', change: '+3.50%' },
-  { rank: 5, name: 'Microsoft', symbol: 'MSFT', price: '$320.00', change: '+1.00%' },
-  { rank: 6, name: 'Amazon', symbol: 'AMZN', price: '$140.20', change: '+0.80%' },
-  { rank: 7, name: 'Meta Platforms', symbol: 'META', price: '$300.50', change: '+2.10%' },
-  { rank: 8, name: 'Berkshire Hathaway', symbol: 'BRK.B', price: '$360.00', change: '+0.50%' },
-  { rank: 9, name: 'Visa Inc', symbol: 'V', price: "$240.10", change: '+0.30%' },
-  { rank: 10, name: 'Johnson & Johnson', symbol: 'JNJ', price: '$160.20', change: '-0.20%' }
-];
-
 // Setup Star Wars Intro
 const introContainer = document.getElementById('intro-container');
 const introCrawl = document.getElementById('intro-crawl');
@@ -130,43 +129,98 @@ const uiContainer = document.getElementById('ui-container');
 const sidebarContainer = document.getElementById('sidebar-container');
 const sidebarList = document.getElementById('sidebar-list');
 
-let crawlHtml = `<div class="intro-title">
-  <p>Today's Market</p>
-  <h1>TOP 10 RECOMMENDS</h1>
-</div><br><br>`;
-
-let sidebarHtml = '';
-
-// 10위부터 1위까지 역순으로 크레딧 생성 (인트로용)
-for (let i = 9; i >= 0; i--) {
-  const s = top10Stocks[i];
-  crawlHtml += `<div class="crawl-item">
-    <h2>${s.rank}위. ${s.name} (${s.symbol})</h2>
-    <p>가격: ${s.price} | 변동: ${s.change}</p>
-  </div><br>`;
-}
-introCrawl.innerHTML = crawlHtml;
-
-// 1위부터 10위까지 순서대로 사이드바 생성 (메인 화면용)
-for (let i = 0; i < 10; i++) {
-  const s = top10Stocks[i];
-  const changeClass = s.change.startsWith('-') ? 'negative' : 'positive';
-  sidebarHtml += `
-    <div class="sidebar-item">
-      <div class="sidebar-item-left">
-        <span class="sidebar-item-rank">#${s.rank}</span>
-        <span class="sidebar-item-name">${s.name}</span>
-      </div>
-      <div class="sidebar-item-right">
-        <span class="sidebar-item-price">${s.price}</span>
-        <span class="sidebar-item-change ${changeClass}">${s.change}</span>
-      </div>
-    </div>
-  `;
-}
-sidebarList.innerHTML = sidebarHtml;
+// Buttons for mode switching
+const btnWeekly = document.getElementById('btn-weekly');
+const btnToday = document.getElementById('btn-today');
 
 let introFinished = false;
+let isFetching = false;
+
+async function fetchRecommendations(mode = 'auto') {
+  if(isFetching) return;
+  isFetching = true;
+  
+  // Set loading state in UI
+  if(sidebarList) sidebarList.innerHTML = '<div style="padding:20px;color:#fff;">AI가 실시간으로 3000여 개의 종목 데이터를 분석 중입니다. 약 1~2분 정도 소요될 수 있습니다...</div>';
+  if(introCrawl) introCrawl.innerHTML = '<div class="intro-title"><p>AI Prediction</p><h1>데이터 분석 중...</h1><p>잠시만 기다려주세요.</p></div>';
+  
+  // Update button UI
+  if(mode === 'auto') {
+    if(btnWeekly) btnWeekly.classList.add('active');
+    if(btnToday) btnToday.classList.remove('active');
+  } else {
+    if(btnWeekly) btnWeekly.classList.remove('active');
+    if(btnToday) btnToday.classList.add('active');
+  }
+
+  try {
+    const response = await fetch(`http://localhost:8000/api/recommend?date=${mode}`);
+    const result = await response.json();
+    if(result.status === 'success' && result.data.length > 0) {
+      top10Stocks = result.data;
+      stocks = mapToPodiumFormat(top10Stocks.slice(0, 3));
+      updateUI();
+      // If intro is already finished but scene wasn't built (due to missing data), build it now
+      if(introFinished) {
+        if(!isSceneBuilt) {
+          buildMainScene();
+        } else {
+          clearMainScene();
+          buildMainScene();
+        }
+      }
+    } else {
+      console.error("데이터가 없거나 오류 발생:", result);
+    }
+  } catch(e) {
+    console.error("API 요청 실패:", e);
+  } finally {
+    isFetching = false;
+  }
+}
+
+function updateUI() {
+  let crawlHtml = `<div class="intro-title">
+    <p>AI Prediction</p>
+    <h1>TOP 10 RECOMMENDS</h1>
+  </div><br><br>`;
+
+  let sidebarHtml = '';
+
+  for (let i = top10Stocks.length - 1; i >= 0; i--) {
+    const s = top10Stocks[i];
+    crawlHtml += `<div class="crawl-item">
+      <h2>${s.rank}위. ${s.name} (${s.symbol})</h2>
+      <p>현재가: ${s.price} | 확률: ${s.prob}</p>
+    </div><br>`;
+  }
+  if(introCrawl) introCrawl.innerHTML = crawlHtml;
+
+  for (let i = 0; i < top10Stocks.length; i++) {
+    const s = top10Stocks[i];
+    const changeClass = s.change.startsWith('-') ? 'negative' : 'positive';
+    sidebarHtml += `
+      <div class="sidebar-item">
+        <div class="sidebar-item-left">
+          <span class="sidebar-item-rank">#${s.rank}</span>
+          <span class="sidebar-item-name">${s.symbol}</span>
+        </div>
+        <div class="sidebar-item-right">
+          <span class="sidebar-item-price">${s.prob}</span>
+          <span class="sidebar-item-change ${changeClass}">${s.change}</span>
+        </div>
+      </div>
+    `;
+  }
+  if(sidebarList) sidebarList.innerHTML = sidebarHtml;
+}
+
+if(btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('auto'); });
+if(btnToday) btnToday.addEventListener('click', () => { fetchRecommendations('today'); });
+
+// Initial fetch
+fetchRecommendations('auto');
+
 
 function finishIntro() {
   if (introFinished) return;
@@ -197,8 +251,22 @@ introCrawl.addEventListener('animationend', finishIntro);
 const characterMeshes = []; // For Raycasting
 let isSceneBuilt = false;
 
+function clearMainScene() {
+  if (!isSceneBuilt) return;
+  // Clear dynamically added podiums and character groups
+  scene.children = scene.children.filter(child => {
+    // Ground, Lights, Particles, etc. should be kept
+    // We can identify podiums and characters if they have geometry but aren't background
+    // A safer way is to store a reference to what we added
+    return child.type !== 'Group' && child.geometry?.type !== 'CylinderGeometry';
+  });
+  characterMeshes.length = 0;
+  isSceneBuilt = false;
+}
+
 function buildMainScene() {
   if (isSceneBuilt) return;
+  if (stocks.length === 0) return; // wait until data is ready
   isSceneBuilt = true;
 
   // Build Podiums

@@ -323,3 +323,27 @@ body {
   font-size: 12px;
   font-weight: bold;
 }
+
+/* Filter Buttons */
+.filter-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.filter-btn.active {
+  background: #6366f1;
+  border-color: #4f46e5;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}

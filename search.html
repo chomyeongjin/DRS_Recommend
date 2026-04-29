@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DRS — Drawing Stocks</title>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root{
+      --bg:#0b0c0e; --panel:#111317; --muted:#1a1c21; --text:#e9ecf1; --sub:#a7b0bf;
+      --primary:#7cafff; --accent:#7ef0c1; --danger:#ff6b6b; --border:#23262d;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 ui-sans-serif,system-ui,Segoe UI,Roboto,Apple SD Gothic Neo,Malgun Gothic,Apple Color Emoji,Noto Color Emoji;}
+    a{color:var(--primary);text-decoration:none}
+    .container{max-width:1080px;margin:32px auto;padding:0 16px}
+    .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:0 10px 24px rgba(124,175,255,.25)}
+    h1{font-size:20px;margin:0}
+    .subtitle{color:var(--sub);font-size:13px;margin-top:2px}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+    .btn{padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:var(--muted);color:var(--text);cursor:pointer;transition:.15s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(135deg,var(--primary),#5fa0ff);border-color:transparent;color:#0b1020;font-weight:700}
+    .btn.ghost{background:transparent}
+    .btn.danger{background:#2a1212;border-color:#411b1b;color:#ffb5b5}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+    .input, select{padding:9px 12px;border:1px solid var(--border);border-radius:10px;background:#0f1116;color:var(--text)}
+    .hint{color:var(--sub);font-size:12px}
+    canvas{width:100%;height:340px;display:block;background:#0d0f14;border:1px dashed #2a2f3a;border-radius:12px}
+    .status{margin-top:10px;font-weight:600}
+    .ok{color:var(--accent)} .bad{color:var(--danger)}
+    .grid{display:grid;gap:14px;margin-top:16px;grid-template-columns:repeat(1,minmax(0,1fr))}
+    @media (min-width:780px){ .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+    @media (min-width:1000px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr))} }
+    .card{background:#0f1116;border:1px solid var(--border);border-radius:14px;padding:12px}
+    .row{display:flex;gap:8px;align-items:center;justify-content:space-between}
+    .ticker{font-weight:700}
+    .chip{padding:4px 8px;border-radius:999px;border:1px solid var(--border);font-size:12px;color:var(--sub)}
+    .mini{width:100%;height:140px;background:#0b0d12;border:1px solid #1f2430;border-radius:10px}
+    footer{margin:32px 0;color:var(--sub);font-size:12px;text-align:center}
+    .toast{position:fixed;right:16px;bottom:16px;background:#10131a;border:1px solid var(--border);padding:10px 14px;border-radius:10px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>DRS — Drawing Stocks</h1>
+          <div class="subtitle">스케치한 곡선과 유사한 종목을 찾습니다 (MA20 기반)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sketch -->
+    <div class="panel">
+      <canvas id="c" width="1024" height="340" aria-label="Sketch area"></canvas>
+
+      <div class="toolbar">
+        <button id="clear" class="btn ghost">지우기</button>
+        <div class="hint">|</div>
+        <button id="search" class="btn primary">🔍 유사도 검색 (PostgreSQL)</button>
+      </div>
+
+      <div id="status" class="status hint">⏳ 데이터 로드 중...</div>
+    </div>
+
+    <!-- Alpha Feature AI Analysis -->
+    <div id="ai-analysis-panel" class="panel" style="display:none; margin-top: 16px; background: linear-gradient(135deg, rgba(124,175,255,0.05), rgba(126,240,193,0.05)); border-color: rgba(124,175,255,0.3);">
+      <div style="display:flex; align-items:center; gap: 8px; margin-bottom: 8px;">
+        <span style="font-size: 18px;">✨</span><h2 style="margin:0; font-size: 16px; color: var(--accent);">AI 스케치 분석 (Alpha)</h2>
+      </div>
+      <div>
+        <span id="ai-pattern-name" style="font-weight: 700; font-size: 16px; color: var(--primary);">분석 중...</span>
+      </div>
+      <div id="ai-fun-fact" class="hint" style="color: var(--text); margin-top: 6px; line-height: 1.5;">패턴을 식별하고 있습니다.</div>
+    </div>
+
+    <!-- Results -->
+    <div id="result" class="grid"></div>
+
+    <footer>© DRS Team — Prototype UI</footer>
+  </div>
+
+  <div id="toast" class="toast" style="display:none">알림</div>
+  <script type="module" src="/src/search.js"></script>
+</body>
+</html>
