@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Stock Podium MVP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="intro-container">
+    <div class="fade"></div>
+    <section class="star-wars">
+      <div class="crawl" id="intro-crawl">
+        <!-- JS가 내용을 채워줍니다 -->
+      </div>
+    </section>
+    <button id="skip-button">SKIP INTRO</button>
+  </div>
+
+  <div id="ui-container" style="display: none;">
+    <h1>Top Recommends</h1>
+    <p>Today's top 3 trending stocks</p>
+  </div>
+
+  <div id="sidebar-container" style="display: none;">
+    <h2>Top 10 Rankings</h2>
+    <div id="sidebar-list">
+      <!-- JS가 내용을 채워줍니다 -->
+    </div>
+  </div>
+
+  <div id="tooltip" class="hidden">
+    <div id="tooltip-logo"></div>
+    <div class="tooltip-info">
+      <h3 id="tooltip-name">Stock Name</h3>
+      <p id="tooltip-price">$0</p>
+      <p id="tooltip-change" class="positive">+0.00%</p>
+    </div>
+  </div>
+
+  <canvas id="app-canvas"></canvas>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
