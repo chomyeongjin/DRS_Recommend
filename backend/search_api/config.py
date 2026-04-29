@@ -16,12 +16,12 @@ class Settings(BaseSettings):
     gemini_api_key: str = ""
 
     # CORS Settings
-    cors_origins: str = '["http://localhost:8080", "http://127.0.0.1:8080"]'
+    cors_origins: str = '["*"]'
 
     # Data Settings
     target_len: int = 128
     cache_ttl_sec: int = 86400  # 24 hours
-    max_tickers: int = 5000
+    max_tickers: int = 1000
 
     # Rate Limiting
     rate_limit_ingest: str = "5/minute"

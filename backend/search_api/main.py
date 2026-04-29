@@ -20,7 +20,8 @@ from .data_io import (
 )
 from .features import dict_to_matrix, normalize_pipeline
 from .similar import rank_top_k
-from .ai_analyzer import analyze_sketch_pattern
+# 제미나이 API 임시 비활성화
+# from .ai_analyzer import analyze_sketch_pattern
 from . import db_io
 
 # Logging configuration
@@ -172,7 +173,7 @@ def ingest(
     request: Request,
     req: IngestRequest,
     force_refresh: bool = Query(False),
-    max_tickers: int = Query(5000, ge=10, le=5000)
+    max_tickers: int = Query(1000, ge=10, le=5000)
 ):
     """
     주가 데이터 다운로드 및 캐싱
@@ -228,7 +229,7 @@ def ingest(
         raise HTTPException(500, f"Ingest 실패: {str(e)}")
 
 @app.post("/refresh_tickers")
-def refresh_tickers(max_tickers: int = Query(5000, ge=10, le=5000)):
+def refresh_tickers(max_tickers: int = Query(1000, ge=10, le=5000)):
     """
     NASDAQ API에서 강제로 티커를 다시 받아와 캐시 파일만 갱신합니다. (가격 다운로드는 아님)
     """
@@ -278,8 +279,33 @@ def similar(request: Request, req: SketchRequest):
             logger.warning("NaN detected in sketch_vec, cleaning...")
             sketch_vec = np.nan_to_num(sketch_vec, nan=0.0)
 
-        # Top5 랭킹
-        pairs = rank_top_k(sketch_vec, CACHE["matrix"], CACHE["tickers"], k=5)
+        # 1. 고속 1차 필터링 (Numpy 연산)
+        matrix = CACHE["matrix"]
+        sketch_norm = np.linalg.norm(sketch_vec)
+        if sketch_norm < 1e-10:
+            filtered_matrix = matrix
+            filtered_tickers = CACHE["tickers"]
+        else:
+            # db_matrix의 norm 계산 (0방지 처리)
+            db_norms = np.linalg.norm(matrix, axis=1)
+            db_norms[db_norms < 1e-10] = 1.0
+            
+            # 모든 티커에 대한 코사인 유사도 일괄 계산
+            cos_sims = np.dot(matrix, sketch_vec) / (db_norms * sketch_norm)
+            
+            # NaN 처리
+            cos_sims = np.nan_to_num(cos_sims, nan=-1.0)
+            
+            # 상위 100개 인덱스 추출
+            k_filter = min(100, len(CACHE["tickers"]))
+            top_indices = np.argsort(cos_sims)[-k_filter:][::-1]
+            
+            filtered_matrix = matrix[top_indices]
+            filtered_tickers = [CACHE["tickers"][i] for i in top_indices]
+            logger.debug(f"Pre-filtered top {k_filter} candidates")
+
+        # 2. 정밀 Top5 랭킹 (DTW, Pearson 등 적용)
+        pairs = rank_top_k(sketch_vec, filtered_matrix, filtered_tickers, k=5)
         logger.info(f"Top 5 matches found: {[t for t, _ in pairs]}")
 
         # 응답(오버레이용 정규화 시리즈 포함)
@@ -388,21 +414,22 @@ def similar_db(request: Request, req: SketchRequest):
         logger.error(f"Similar DB search failed: {e}")
         raise HTTPException(500, f"DB 유사도 검색 실패: {str(e)}")
 
-@app.post("/analyze_pattern")
-@limiter.limit("30/minute") # Setting a somewhat high limit for now
-def route_analyze_pattern(request: Request, req: SketchRequest):
-    """
-    AI를 이용해 스케치 패턴 분석 (Alpha)
-    """
-    try:
-        y = np.array(req.y, dtype=float)
-        sketch_vec = normalize_pipeline(y, target_len=128)
-        if np.any(np.isnan(sketch_vec)):
-            sketch_vec = np.nan_to_num(sketch_vec, nan=0.0)
-            
-        result = analyze_sketch_pattern(sketch_vec.tolist())
-        return result
-    except Exception as e:
-        logger.error(f"Pattern analysis failed: {e}")
-        raise HTTPException(500, f"패턴 분석 실패: {str(e)}")
-
+# 제미나이 API 임시 비활성화
+# @app.post("/analyze_pattern")
+# @limiter.limit("30/minute") # Setting a somewhat high limit for now
+# def route_analyze_pattern(request: Request, req: SketchRequest):
+#     """
+#     AI를 이용해 스케치 패턴 분석 (Alpha)
+#     """
+#     try:
+#         y = np.array(req.y, dtype=float)
+#         sketch_vec = normalize_pipeline(y, target_len=128)
+#         if np.any(np.isnan(sketch_vec)):
+#             sketch_vec = np.nan_to_num(sketch_vec, nan=0.0)
+#             
+#         # result = analyze_sketch_pattern(sketch_vec.tolist())
+#         # return result
+#         return {"pattern_name": "일시 중지", "fun_fact": "AI 분석 기능이 현재 비활성화되어 있습니다."}
+#     except Exception as e:
+#         logger.error(f"Pattern analysis failed: {e}")
+#         raise HTTPException(500, f"패턴 분석 실패: {str(e)}")
