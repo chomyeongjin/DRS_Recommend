@@ -30,10 +30,13 @@ body {
 #ui-container {
   position: absolute;
   top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: max-content;
   z-index: 10;
   text-align: center;
+  /*
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -41,13 +44,15 @@ body {
   box-shadow: var(--glass-shadow);
   padding: 20px 40px;
   border-radius: 24px;
+  */
 }
 
 #ui-container h1 {
   margin: 0;
-  font-size: 42px;
+  font-size: 30px;
   font-weight: 900;
-  background: -webkit-linear-gradient(45deg, #FF6B6B, #FFD93D);
+  /*background: -webkit-linear-gradient(45deg, #FF6B6B, #FFD93D);*/
+  background: #ffffff;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,12 +60,14 @@ body {
   letter-spacing: 2px;
 }
 
+/*
 #ui-container p {
   margin: 8px 0 0;
   font-size: 18px;
   font-weight: 700;
   color: #4a5568;
 }
+*/
 
 /* Tooltip for Hover Info */
 #tooltip {
@@ -135,7 +142,8 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  background: transparent; /* Show three.js space background behind */
+  background: transparent;
+  /* Show three.js space background behind */
   pointer-events: auto;
 }
 
@@ -154,7 +162,8 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  color: #feda4a; /* Star Wars Yellow */
+  color: #feda4a;
+  /* Star Wars Yellow */
   font-family: 'Outfit', sans-serif;
   perspective: 600px;
   text-align: center;
@@ -162,7 +171,8 @@ body {
 
 .crawl {
   position: relative;
-  top: 100%; /* Start off-screen */
+  top: 100%;
+  /* Start off-screen */
   transform-origin: 50% 100%;
   animation: crawl 20s linear forwards;
   width: 80%;
@@ -192,7 +202,8 @@ body {
 .crawl .crawl-item p {
   font-size: 24px;
   margin: 0;
-  color: #fff; /* White for readability */
+  color: #fff;
+  /* White for readability */
 }
 
 @keyframes crawl {
@@ -200,7 +211,8 @@ body {
     top: 100%;
     transform: rotateX(25deg) translateZ(0);
   }
-  100% { 
+
+  100% {
     top: -200%;
     transform: rotateX(25deg) translateZ(-1000px);
   }
@@ -268,10 +280,12 @@ body {
 #sidebar-list::-webkit-scrollbar {
   width: 4px;
 }
+
 #sidebar-list::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 2px;
 }
+
 #sidebar-list::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 2px;
@@ -324,6 +338,17 @@ body {
   font-weight: bold;
 }
 
+/* Filter Buttons Container */
+.filter-container {
+  position: fixed;
+  top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
 /* Filter Buttons */
 .filter-btn {
   background: rgba(255, 255, 255, 0.1);
@@ -343,7 +368,7 @@ body {
 }
 
 .filter-btn.active {
-  background: #6366f1;
-  border-color: #4f46e5;
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+  background: #feda4a;
+  border-color: #e0cc00;
+  box-shadow: 0 0 10px rgb(233, 210, 41);
 }
