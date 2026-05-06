@@ -133,6 +133,87 @@ const sidebarList = document.getElementById('sidebar-list');
 const btnWeekly = document.getElementById('btn-weekly');
 const btnToday = document.getElementById('btn-today');
 
+// Modal Elements
+const reasonModal = document.getElementById('reason-modal');
+const modalClose = document.getElementById('modal-close');
+const modalStockName = document.getElementById('modal-stock-name');
+const modalStockSymbol = document.getElementById('modal-stock-symbol');
+const modalStockPrice = document.getElementById('modal-stock-price');
+const modalStockChange = document.getElementById('modal-stock-change');
+const modalReasonText = document.getElementById('modal-reason-text');
+const modalTagsContainer = document.getElementById('modal-tags-container');
+
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    reasonModal.classList.add('hidden');
+  });
+}
+
+if (reasonModal) {
+  reasonModal.addEventListener('click', (e) => {
+    if (e.target === reasonModal) {
+      reasonModal.classList.add('hidden');
+    }
+  });
+}
+
+// Generate dummy reason
+function getDummyReason(stock) {
+  const reasons = [
+    `최근 3일간 거래량이 200% 증가하며 강한 매수세가 유입되었습니다. MACD 골든크로스가 발생하여 단기 상승 추세가 예상됩니다.`,
+    `해당 섹터의 전반적인 호황과 함께 기관 및 외국인의 순매수가 지속되고 있습니다. 볼린저 밴드 상단을 돌파하며 강한 모멘텀을 보여줍니다.`,
+    `어닝 서프라이즈 기대감으로 인해 투자 심리가 개선되었습니다. 지지선을 강하게 버티며 V자 반등을 시도하고 있는 차트 패턴입니다.`,
+    `RSI가 과매도 구간에서 벗어나며 추세 반전을 시도하고 있습니다. 주요 이동평균선을 상향 돌파하며 기술적 매수 신호가 포착되었습니다.`
+  ];
+  const tagsList = [
+    ['#골든크로스', '#거래량급증', '#모멘텀'],
+    ['#외국인순매수', '#섹터호조', '#신고가'],
+    ['#V자반등', '#실적기대', '#지지선확보'],
+    ['#RSI과매도', '#추세전환', '#단기스윙']
+  ];
+  
+  // Use rank to pick a somewhat deterministic reason
+  const idx = (stock.rank - 1) % reasons.length;
+  return {
+    text: reasons[idx],
+    tags: tagsList[idx]
+  };
+}
+
+// Event Delegation for Sidebar clicks
+if (sidebarList) {
+  sidebarList.addEventListener('click', (e) => {
+    const item = e.target.closest('.sidebar-item');
+    if (!item) return;
+    
+    const index = item.getAttribute('data-index');
+    if (index !== null && top10Stocks[index]) {
+      const stock = top10Stocks[index];
+      
+      modalStockName.textContent = stock.name || stock.symbol;
+      modalStockSymbol.textContent = stock.symbol;
+      modalStockPrice.textContent = stock.price || 'N/A'; 
+      
+      const changeClass = stock.change.startsWith('-') ? 'negative' : 'positive';
+      modalStockChange.textContent = stock.change;
+      modalStockChange.className = changeClass;
+      
+      const reasonData = getDummyReason(stock);
+      modalReasonText.textContent = reasonData.text;
+      
+      modalTagsContainer.innerHTML = '';
+      reasonData.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = tag;
+        modalTagsContainer.appendChild(span);
+      });
+      
+      reasonModal.classList.remove('hidden');
+    }
+  });
+}
+
 let introFinished = false;
 let isFetching = false;
 
@@ -156,7 +237,7 @@ async function fetchRecommendations(mode = 'auto') {
   try {
     const response = await fetch(`http://localhost:8000/api/recommend?date=${mode}`);
     const result = await response.json();
-    if(result.status === 'success' && result.data.length > 0) {
+    if(result.status === 'success' && result.data && result.data.length > 0) {
       top10Stocks = result.data;
       stocks = mapToPodiumFormat(top10Stocks.slice(0, 3));
       updateUI();
@@ -171,9 +252,22 @@ async function fetchRecommendations(mode = 'auto') {
       }
     } else {
       console.error("데이터가 없거나 오류 발생:", result);
+      const errorMsg = result.message || "데이터가 없습니다.";
+      if(sidebarList) sidebarList.innerHTML = `<div style="padding:20px;color:#ff6b6b;font-weight:bold;line-height:1.5;">❌ 추천 데이터를 불러오는 데 실패했습니다.<br><br><span style="font-size:12px;color:#ffb3b3;">오류: ${errorMsg}</span></div>`;
+      if(introCrawl) introCrawl.innerHTML = `<div class="intro-title"><p>AI Prediction</p><h1 style="color:#ff6b6b;">데이터 분석 실패</h1><p>백엔드 서버 연산 중 오류가 발생했습니다.</p></div>`;
+      
+      if(!introFinished) {
+        setTimeout(finishIntro, 3000); // 오류 시 3초 후 인트로 스킵하여 메인 UI(사이드바) 확인 가능하게 함
+      }
     }
   } catch(e) {
     console.error("API 요청 실패:", e);
+    if(sidebarList) sidebarList.innerHTML = `<div style="padding:20px;color:#ff6b6b;font-weight:bold;line-height:1.5;">❌ API 요청에 실패했습니다.<br><br><span style="font-size:12px;color:#ffb3b3;">네트워크 오류 또는 백엔드 서버가 꺼져 있습니다.</span></div>`;
+    if(introCrawl) introCrawl.innerHTML = `<div class="intro-title"><p>AI Prediction</p><h1 style="color:#ff6b6b;">서버 연결 실패</h1><p>백엔드 서버와 연결할 수 없습니다.</p></div>`;
+    
+    if(!introFinished) {
+      setTimeout(finishIntro, 3000);
+    }
   } finally {
     isFetching = false;
   }
@@ -200,7 +294,7 @@ function updateUI() {
     const s = top10Stocks[i];
     const changeClass = s.change.startsWith('-') ? 'negative' : 'positive';
     sidebarHtml += `
-      <div class="sidebar-item">
+      <div class="sidebar-item" data-index="${i}">
         <div class="sidebar-item-left">
           <span class="sidebar-item-rank">#${s.rank}</span>
           <span class="sidebar-item-name">${s.symbol}</span>

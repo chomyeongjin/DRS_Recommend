@@ -47,6 +47,32 @@
 
   <canvas id="app-canvas"></canvas>
 
+  <!-- Reason Modal -->
+  <div id="reason-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close-btn">&times;</button>
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h2 id="modal-stock-name">Stock Name</h2>
+          <span id="modal-stock-symbol" class="modal-symbol">SYMBOL</span>
+        </div>
+        <div class="modal-price-group">
+          <span id="modal-stock-price">Price</span>
+          <span id="modal-stock-change" class="positive">Change</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <h3>AI 추천 분석 요약</h3>
+        <div class="reason-box">
+          <p id="modal-reason-text">분석 데이터를 불러오는 중입니다...</p>
+        </div>
+        <div class="modal-tags" id="modal-tags-container">
+          <!-- Tags will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script type="module" src="/src/main.js"></script>
 </body>
 
