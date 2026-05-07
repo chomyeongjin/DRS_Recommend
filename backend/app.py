@@ -1,11 +1,13 @@
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from predict_service import get_top_10_recommendations
 import uvicorn
+import os
 
 app = FastAPI(title="DRS Recommend API")
 
-# Configure CORS so the Vite frontend (usually on port 5173) can communicate
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,12 +18,23 @@ app.add_middleware(
 
 @app.get("/api/recommend")
 def recommend(date: str = Query("auto", description="Date mode: 'auto' (last friday) or 'today'")):
-    # Call the ML pipeline
     try:
         results = get_top_10_recommendations(mode=date)
         return {"status": "success", "data": results}
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         return {"status": "error", "message": str(e)}
 
+@app.get("/debug")
+def debug():
+    import predict_service
+    return {
+        "app_file": __file__,
+        "app_cwd": os.getcwd(),
+        "predict_file": predict_service.__file__,
+        "predict_code": open(predict_service.__file__, 'r', encoding='utf-8').read()[:200]
+    }
+
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app:app", host="0.0.0.0", port=8001, reload=True)

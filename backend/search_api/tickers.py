@@ -94,7 +94,7 @@ def fetch_tickers_from_nasdaq() -> List[str]:
         정규화된 티커 심볼 리스트
     """
     ticker_info = fetch_ticker_info_from_nasdaq()
-    return sorted(ticker_info.keys())
+    return list(ticker_info.keys())
 
 def load_cached_tickers() -> Optional[List[str]]:
     """캐시 파일에서 티커 로드 (TTL 확인)"""

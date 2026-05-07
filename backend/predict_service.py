@@ -48,17 +48,17 @@ def get_target_date(mode="auto"):
 
 def get_top_10_recommendations(mode="auto"):
     target_date = get_target_date(mode)
-    print(f"🔮 예측 기준일: {target_date}")
+    print(f"[예측 기준일] {target_date}")
 
     # 캐시 확인 로직
     cache_file = os.path.join(DATA_DIR, f"cache_{target_date}.json")
     if os.path.exists(cache_file):
-        print(f"⚡ 캐시된 데이터를 즉시 불러옵니다: {cache_file}")
+        print(f"[캐시 데이터 로드] {cache_file}")
         try:
             with open(cache_file, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except Exception as e:
-            print(f"⚠️ 캐시 읽기 실패, 새로 연산합니다: {e}")
+            print(f"[캐시 읽기 실패] 새로 연산합니다: {e}")
 
     model = load_ml_model()
     tickers = get_all_tickers()[:3000] # 최적화를 위해 일부 자르기(원래 코드와 동일)
@@ -125,6 +125,16 @@ def get_top_10_recommendations(mode="auto"):
                 # 현재 종가(UI 표시용)
                 current_price = last_row['Close'].values[0]
                 
+                # 1. 가격 필터: 5달러 미만 (워런트, 페니스탁 등) 제외
+                if current_price < 5:
+                    continue
+                    
+                # 2. 상장폐지 필터: 마지막 거래일이 target_date 기준 7일 이상 지났으면 제외
+                target_dt = pd.to_datetime(target_date)
+                last_dt = pd.to_datetime(last_row.index[0])
+                if (target_dt - last_dt).days > 7:
+                    continue
+                
                 # 7일 전 대비 변동률 (간단히 표시용으로 최근 5일(1주) 수익률 활용)
                 change_1w = last_row['ROC_5'].values[0] * 100
                 
@@ -144,6 +154,8 @@ def get_top_10_recommendations(mode="auto"):
     if not all_rows:
         return []
         
+    print(f"[필터링 완료] 최종 분석 대상 티커 수: {len(all_rows)}개")
+    
     final_df = pd.concat(all_rows, ignore_index=True)
     features_only = final_df.drop(columns=['Ticker', 'Date', 'Price_Display', 'Change_Display'], errors='ignore')
     
@@ -178,9 +190,9 @@ def get_top_10_recommendations(mode="auto"):
     try:
         with open(cache_file, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=4)
-        print(f"💾 연산 결과를 캐시에 저장했습니다: {cache_file}")
+        print(f"[캐시 저장 완료] {cache_file}")
     except Exception as e:
-        print(f"⚠️ 캐시 저장 실패: {e}")
+        print(f"[캐시 저장 실패] {e}")
         
     return results
 

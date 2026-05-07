@@ -235,12 +235,12 @@ async function fetchRecommendations(mode = 'auto') {
   }
 
   try {
-    const response = await fetch(`http://localhost:8000/api/recommend?date=${mode}`);
+    const response = await fetch(`http://localhost:8001/api/recommend?date=${mode}`);
     const result = await response.json();
     if(result.status === 'success' && result.data && result.data.length > 0) {
       top10Stocks = result.data;
       stocks = mapToPodiumFormat(top10Stocks.slice(0, 3));
-      updateUI();
+      updateUI(mode);
       // If intro is already finished but scene wasn't built (due to missing data), build it now
       if(introFinished) {
         if(!isSceneBuilt) {
@@ -273,10 +273,14 @@ async function fetchRecommendations(mode = 'auto') {
   }
 }
 
-function updateUI() {
+function updateUI(mode) {
   let crawlHtml = `<div class="intro-title">
     <p>AI Prediction</p>
     <h1>TOP 10 RECOMMENDS</h1>
+    <p style="font-size: 1.2rem; margin-top: 10px; color: #ffaa00;">
+      시가총액 상위 1,000개 우량주 기준<br>
+      (기준일: ${mode})
+    </p>
   </div><br><br>`;
 
   let sidebarHtml = '';
@@ -309,11 +313,11 @@ function updateUI() {
   if(sidebarList) sidebarList.innerHTML = sidebarHtml;
 }
 
-if(btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('auto'); });
+if(btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('2026-05-01'); });
 if(btnToday) btnToday.addEventListener('click', () => { fetchRecommendations('today'); });
 
 // Initial fetch
-fetchRecommendations('auto');
+fetchRecommendations('2026-05-01');
 
 
 function finishIntro() {

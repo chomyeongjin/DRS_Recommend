@@ -1,0 +1,92 @@
+[
+    {
+        "rank": 1,
+        "id": "BBAR",
+        "name": "BBAR Corp",
+        "symbol": "BBAR",
+        "price": "$15.42",
+        "change": "+8.13%",
+        "prob": "47.3%"
+    },
+    {
+        "rank": 2,
+        "id": "AAON",
+        "name": "AAON Corp",
+        "symbol": "AAON",
+        "price": "$129.85",
+        "change": "+39.17%",
+        "prob": "44.2%"
+    },
+    {
+        "rank": 3,
+        "id": "APLD",
+        "name": "APLD Corp",
+        "symbol": "APLD",
+        "price": "$40.97",
+        "change": "+19.62%",
+        "prob": "43.9%"
+    },
+    {
+        "rank": 4,
+        "id": "AAL",
+        "name": "AAL Corp",
+        "symbol": "AAL",
+        "price": "$12.99",
+        "change": "+10.93%",
+        "prob": "43.3%"
+    },
+    {
+        "rank": 5,
+        "id": "ACHC",
+        "name": "ACHC Corp",
+        "symbol": "ACHC",
+        "price": "$24.50",
+        "change": "-5.42%",
+        "prob": "38.6%"
+    },
+    {
+        "rank": 6,
+        "id": "AEHR",
+        "name": "AEHR Corp",
+        "symbol": "AEHR",
+        "price": "$91.54",
+        "change": "+1.08%",
+        "prob": "37.6%"
+    },
+    {
+        "rank": 7,
+        "id": "ARTV",
+        "name": "ARTV Corp",
+        "symbol": "ARTV",
+        "price": "$12.16",
+        "change": "+18.75%",
+        "prob": "37.5%"
+    },
+    {
+        "rank": 8,
+        "id": "AYA",
+        "name": "AYA Corp",
+        "symbol": "AYA",
+        "price": "$18.65",
+        "change": "+7.93%",
+        "prob": "37.2%"
+    },
+    {
+        "rank": 9,
+        "id": "BNR",
+        "name": "BNR Corp",
+        "symbol": "BNR",
+        "price": "$17.01",
+        "change": "+4.74%",
+        "prob": "36.3%"
+    },
+    {
+        "rank": 10,
+        "id": "AKTX",
+        "name": "AKTX Corp",
+        "symbol": "AKTX",
+        "price": "$6.11",
+        "change": "+13.15%",
+        "prob": "36.0%"
+    }
+]

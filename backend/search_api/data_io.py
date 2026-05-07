@@ -82,8 +82,14 @@ def save_ma20_parquet(ma_dict: Dict[str, pd.Series]) -> str:
         저장된 파일 경로
     """
     df = pd.DataFrame({t: s for t, s in ma_dict.items()}).dropna(how="all")
+    
+    # Remove timezone information to prevent pyarrow serialization errors
+    if isinstance(df.index, pd.DatetimeIndex) and df.index.tz is not None:
+        df.index = df.index.tz_localize(None)
+        
     p = DATA_DIR / "ma20.parquet"
-    df.to_parquet(p)
+    # Using fastparquet engine as a fallback for stability
+    df.to_parquet(p, engine='fastparquet')
     logger.info(f"Saved MA20 data to {p}: {df.shape}")
     return str(p)
 
@@ -102,7 +108,7 @@ def load_ma20_parquet() -> Optional[pd.DataFrame]:
     """
     p = DATA_DIR / "ma20.parquet"
     if p.exists():
-        df = pd.read_parquet(p)
+        df = pd.read_parquet(p, engine='fastparquet')
         logger.debug(f"Loaded MA20 data from {p}: {df.shape}")
         return df
     else:
