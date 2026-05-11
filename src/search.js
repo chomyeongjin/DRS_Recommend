@@ -133,32 +133,71 @@ document.getElementById("search").onclick = async () => {
     searchBtn.disabled = false;
   }
 
-  // Alpha Feature: AI Pattern Analysis (비동기 병렬 실행)
-  const aiPanel = document.getElementById("ai-analysis-panel");
-  const aiPatternName = document.getElementById("ai-pattern-name");
-  const aiFunFact = document.getElementById("ai-fun-fact");
-  
-  aiPanel.style.display = "block";
-  aiPatternName.textContent = "분석 중...";
-  aiFunFact.textContent = "Gemini AI가 패턴을 식별하고 있습니다. 잠시만 기다려주세요.";
 
-  fetch(`${API}/analyze_pattern`, {
-    method: "POST", headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ y, target_len: 128 })
-  }).then(res => res.json()).then(data => {
-    // 백엔드 에러 등의 응답이 올 수 있으므로 체크
-    if (data.detail) {
-      aiPatternName.textContent = "분석 실패";
-      aiFunFact.textContent = data.detail;
+};
+
+// ---------- Compare Specific Ticker ----------
+const compareModal = document.getElementById("compare-modal");
+const compareBtn = document.getElementById("compare-btn");
+const modalClose = document.getElementById("modal-close");
+
+compareBtn.onclick = async () => {
+  const y = resampleY(pts, 128);
+  if (y.length < 10) return toast("스케치를 먼저 그려주세요!");
+
+  const inputEl = document.getElementById("compare-input");
+  const ticker = inputEl.value.trim().toUpperCase();
+  if (!ticker) return toast("비교할 티커를 입력해주세요!");
+
+  compareBtn.disabled = true;
+  compareBtn.textContent = "비교 중...";
+
+  try {
+    const r = await fetch(`${API}/compare_ticker`, {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ y, target_len: 128, ticker })
+    });
+    const data = await r.json();
+
+    if (!r.ok) {
+      toast(data.detail || "비교 실패");
+      compareBtn.disabled = false;
+      compareBtn.textContent = "비교하기";
       return;
     }
-    aiPatternName.textContent = data.pattern_name || "패턴 인식 불가";
-    aiFunFact.textContent = data.fun_fact || "설명을 불러올 수 없습니다.";
-  }).catch(err => {
-    aiPatternName.textContent = "오류 발생";
-    aiFunFact.textContent = "AI 서버와 통신할 수 없습니다.";
-  });
 
+    const modalBody = document.getElementById("modal-body");
+    modalBody.innerHTML = `
+      <div class="card" style="border: none; padding: 0;">
+        <div class="row" style="margin-bottom: 12px;">
+          <div class="ticker">${data.name} (${data.ticker})</div>
+          <div class="chip">score: ${Number(data.score).toFixed(4)}</div>
+        </div>
+        <canvas class="mini" width="420" height="140" id="cv_modal"></canvas>
+        <div class="hint" style="margin-top: 8px;">검정: 스케치 / 회색: MA20(정규화)</div>
+      </div>
+    `;
+
+    // Draw on modal canvas
+    const cv = document.getElementById("cv_modal");
+    drawOverlay(cv, data.sketch_norm, data.series_norm);
+
+    // Show modal
+    compareModal.classList.add("active");
+    toast(`비교 완료: ${data.ticker}`);
+    
+  } catch(e) {
+    toast("검색 중 오류 발생");
+  } finally {
+    compareBtn.disabled = false;
+    compareBtn.textContent = "비교하기";
+  }
+};
+
+// Modal close logic
+modalClose.onclick = () => compareModal.classList.remove("active");
+compareModal.onclick = (e) => {
+  if (e.target === compareModal) compareModal.classList.remove("active");
 };
 
 // ---------- overlay drawing ----------

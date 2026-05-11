@@ -11,7 +11,7 @@ import threading
 from pathlib import Path
 
 from .config import settings
-from .models import IngestRequest, SketchRequest, SimilarResponse, SimilarResponseItem
+from .models import IngestRequest, SketchRequest, SimilarResponse, SimilarResponseItem, CompareTickerRequest
 from .tickers import get_tickers, get_ticker_info
 from .data_io import (
     download_ohlc,  # fallback
@@ -20,8 +20,7 @@ from .data_io import (
 )
 from .features import dict_to_matrix, normalize_pipeline
 from .similar import rank_top_k
-# 제미나이 API 임시 비활성화
-# from .ai_analyzer import analyze_sketch_pattern
+
 from . import db_io
 
 # Logging configuration
@@ -414,22 +413,62 @@ def similar_db(request: Request, req: SketchRequest):
         logger.error(f"Similar DB search failed: {e}")
         raise HTTPException(500, f"DB 유사도 검색 실패: {str(e)}")
 
-# 제미나이 API 임시 비활성화
-# @app.post("/analyze_pattern")
-# @limiter.limit("30/minute") # Setting a somewhat high limit for now
-# def route_analyze_pattern(request: Request, req: SketchRequest):
-#     """
-#     AI를 이용해 스케치 패턴 분석 (Alpha)
-#     """
-#     try:
-#         y = np.array(req.y, dtype=float)
-#         sketch_vec = normalize_pipeline(y, target_len=128)
-#         if np.any(np.isnan(sketch_vec)):
-#             sketch_vec = np.nan_to_num(sketch_vec, nan=0.0)
-#             
-#         # result = analyze_sketch_pattern(sketch_vec.tolist())
-#         # return result
-#         return {"pattern_name": "일시 중지", "fun_fact": "AI 분석 기능이 현재 비활성화되어 있습니다."}
-#     except Exception as e:
-#         logger.error(f"Pattern analysis failed: {e}")
-#         raise HTTPException(500, f"패턴 분석 실패: {str(e)}")
+
+@app.post("/compare_ticker", response_model=SimilarResponseItem)
+@limiter.limit(settings.rate_limit_similar)
+def compare_ticker(request: Request, req: CompareTickerRequest):
+    """
+    특정 티커와 스케치 간의 유사도 비교
+    """
+    logger.info(f"Compare ticker started: {req.ticker}")
+
+    ticker_upper = req.ticker.upper().strip()
+
+    if CACHE["matrix"] is None or CACHE.get("norm_map") is None:
+        raise HTTPException(400, "서버 캐시가 준비되지 않았습니다.")
+
+    if ticker_upper not in CACHE["tickers"]:
+        raise HTTPException(404, f"티커 '{ticker_upper}'를 데이터에서 찾을 수 없습니다.")
+
+    try:
+        # 스케치 정규화
+        y = np.array(req.y, dtype=float)
+        sketch_vec = normalize_pipeline(y, target_len=CACHE["target_len"])
+        
+        if np.any(np.isnan(sketch_vec)):
+            sketch_vec = np.nan_to_num(sketch_vec, nan=0.0)
+
+        # 해당 종목 매트릭스 인덱스 찾기
+        idx = CACHE["tickers"].index(ticker_upper)
+        series_vec = CACHE["matrix"][idx]
+
+        # 앙상블 스코어 계산
+        from .similar import ensemble_score
+        score = ensemble_score(sketch_vec, series_vec)
+
+        # 응답 구성
+        series_norm = CACHE["norm_map"].get(ticker_upper)
+        if series_norm is None:
+            series_norm = series_vec.tolist()
+
+        if isinstance(series_norm, list):
+            series_norm = [0.0 if (isinstance(x, float) and not np.isfinite(x)) else x for x in series_norm]
+
+        sketch_norm_list = [0.0 if not np.isfinite(x) else float(x) for x in sketch_vec]
+        company_name = CACHE.get("ticker_info", {}).get(ticker_upper, ticker_upper)
+
+        return SimilarResponseItem(
+            ticker=ticker_upper,
+            name=company_name,
+            score=float(score) if np.isfinite(score) else 0.0,
+            rank=0,
+            series_norm=series_norm,
+            sketch_norm=sketch_norm_list
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Compare ticker failed: {e}")
+        raise HTTPException(500, f"비교 실패: {str(e)}")
+
+

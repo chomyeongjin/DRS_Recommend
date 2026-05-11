@@ -8,6 +8,9 @@ class SketchRequest(BaseModel):
     y: List[float] = Field(..., min_items=10)  # 스케치 y값 (0~1 권장)
     target_len: int = 200
 
+class CompareTickerRequest(SketchRequest):
+    ticker: str
+
 class SimilarResponseItem(BaseModel):
     ticker: str
     name: str = ""  # 회사 이름

@@ -88,8 +88,8 @@ def save_ma20_parquet(ma_dict: Dict[str, pd.Series]) -> str:
         df.index = df.index.tz_localize(None)
         
     p = DATA_DIR / "ma20.parquet"
-    # Using fastparquet engine as a fallback for stability
-    df.to_parquet(p, engine='fastparquet')
+    # Using pyarrow engine
+    df.to_parquet(p, engine='pyarrow')
     logger.info(f"Saved MA20 data to {p}: {df.shape}")
     return str(p)
 
@@ -108,7 +108,7 @@ def load_ma20_parquet() -> Optional[pd.DataFrame]:
     """
     p = DATA_DIR / "ma20.parquet"
     if p.exists():
-        df = pd.read_parquet(p, engine='fastparquet')
+        df = pd.read_parquet(p, engine='pyarrow')
         logger.debug(f"Loaded MA20 data from {p}: {df.shape}")
         return df
     else:
