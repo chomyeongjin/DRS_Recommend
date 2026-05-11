@@ -170,10 +170,8 @@ def get_top_10_recommendations(mode="auto"):
     predictions['Change'] = final_df['Change_Display']
     
     bulls = predictions.sort_values(by=prob_col, ascending=False)
-    top_10 = bulls.head(10)
-    
     results = []
-    for i, (_, row) in enumerate(top_10.iterrows(), 1):
+    for i, (_, row) in enumerate(bulls.iterrows(), 1):
         prob = row[prob_col] * 100
         # 회사 이름은 간단하게 Ticker 로 대체 (또는 Yahoo Finance에서 가져올 수도 있으나 속도상 생략)
         results.append({
@@ -185,6 +183,7 @@ def get_top_10_recommendations(mode="auto"):
             "change": str(row['Change']),
             "prob": f"{prob:.1f}%"
         })
+
         
     # 결과를 캐시 파일로 저장 (다음번 요청시 1초 만에 로드되도록)
     try:

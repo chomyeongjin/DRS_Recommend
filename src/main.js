@@ -6,7 +6,7 @@ import gsap from 'gsap';
 
 // Real data will be fetched, initialize empty arrays
 let stocks = [];
-let top10Stocks = [];
+let allStocks = [];
 
 // Helper function to map top 3 stocks to 3D podium format
 function mapToPodiumFormat(top3) {
@@ -187,8 +187,8 @@ if (sidebarList) {
     if (!item) return;
     
     const index = item.getAttribute('data-index');
-    if (index !== null && top10Stocks[index]) {
-      const stock = top10Stocks[index];
+    if (index !== null && allStocks[index]) {
+      const stock = allStocks[index];
       
       modalStockName.textContent = stock.name || stock.symbol;
       modalStockSymbol.textContent = stock.symbol;
@@ -238,8 +238,8 @@ async function fetchRecommendations(mode = 'auto') {
     const response = await fetch(`http://localhost:8001/api/recommend?date=${mode}`);
     const result = await response.json();
     if(result.status === 'success' && result.data && result.data.length > 0) {
-      top10Stocks = result.data;
-      stocks = mapToPodiumFormat(top10Stocks.slice(0, 3));
+      allStocks = result.data;
+      stocks = mapToPodiumFormat(allStocks.slice(0, 3));
       updateUI(mode);
       // If intro is already finished but scene wasn't built (due to missing data), build it now
       if(introFinished) {
@@ -284,9 +284,11 @@ function updateUI(mode) {
   </div><br><br>`;
 
   let sidebarHtml = '';
+  
+  const top10 = allStocks.slice(0, 10);
 
-  for (let i = top10Stocks.length - 1; i >= 0; i--) {
-    const s = top10Stocks[i];
+  for (let i = top10.length - 1; i >= 0; i--) {
+    const s = top10[i];
     crawlHtml += `<div class="crawl-item">
       <h2>${s.rank}위. ${s.name} (${s.symbol})</h2>
       <p>현재가: ${s.price} | 확률: ${s.prob}</p>
@@ -294,8 +296,8 @@ function updateUI(mode) {
   }
   if(introCrawl) introCrawl.innerHTML = crawlHtml;
 
-  for (let i = 0; i < top10Stocks.length; i++) {
-    const s = top10Stocks[i];
+  for (let i = 0; i < top10.length; i++) {
+    const s = top10[i];
     const changeClass = s.change.startsWith('-') ? 'negative' : 'positive';
     sidebarHtml += `
       <div class="sidebar-item" data-index="${i}">
@@ -312,6 +314,30 @@ function updateUI(mode) {
   }
   if(sidebarList) sidebarList.innerHTML = sidebarHtml;
 }
+
+// AI Ranking Search Logic
+const aiSearchInput = document.getElementById('ai-search-input');
+const aiSearchBtn = document.getElementById('ai-search-btn');
+const aiSearchResult = document.getElementById('ai-search-result');
+
+if (aiSearchBtn) {
+  aiSearchBtn.addEventListener('click', () => {
+    const q = aiSearchInput.value.trim().toUpperCase();
+    if(!q) return;
+    
+    const found = allStocks.find(s => s.symbol === q);
+    if(found) {
+      aiSearchResult.innerHTML = `${found.symbol} 종목은 AI 추천 <b style="font-size:16px;">${found.rank}위</b> 입니다.`;
+    } else {
+      aiSearchResult.innerHTML = `${q} 종목은 분석 데이터에 존재하지 않습니다.`;
+    }
+  });
+  
+  aiSearchInput.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter') aiSearchBtn.click();
+  });
+}
+
 
 if(btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('2026-05-01'); });
 if(btnToday) btnToday.addEventListener('click', () => { fetchRecommendations('today'); });

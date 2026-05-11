@@ -32,6 +32,18 @@
 
   <div id="sidebar-container" style="display: none;">
     <h2>Top 10 Rankings</h2>
+
+    <!-- AI Ranking Search -->
+    <div style="padding: 0 20px 15px 20px; text-align: center; border-bottom: 1px solid #333; margin-bottom: 10px;">
+      <div style="display: flex; gap: 8px; justify-content: center;">
+        <input type="text" id="ai-search-input" placeholder="티커 검색 (예: AAPL)"
+          style="padding: 8px; width: 60%; border-radius: 6px; border: 1px solid #444; background: #111; color: white; text-transform: uppercase;">
+        <button id="ai-search-btn"
+          style="padding: 6px 14px; border-radius: 6px; border: none; background: #feda4a; color: black; font-weight: bold; cursor: pointer;">순위<br>확인</button>
+      </div>
+      <div id="ai-search-result" style="margin-top: 10px; font-size: 14px; color: #ffaa00; min-height: 20px;"></div>
+    </div>
+
     <div id="sidebar-list">
     </div>
   </div>
