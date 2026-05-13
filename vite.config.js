@@ -6,8 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        recommend: resolve(__dirname, 'recommend.html'),
-        search: resolve(__dirname, 'search.html')
+        recommend: resolve(__dirname, 'recommend.html')
       }
     }
   }
