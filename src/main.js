@@ -165,28 +165,6 @@ if (reasonModal) {
   });
 }
 
-// Generate dummy reason
-function getDummyReason(stock) {
-  const reasons = [
-    `최근 3일간 거래량이 200% 증가하며 강한 매수세가 유입되었습니다. MACD 골든크로스가 발생하여 단기 상승 추세가 예상됩니다.`,
-    `해당 섹터의 전반적인 호황과 함께 기관 및 외국인의 순매수가 지속되고 있습니다. 볼린저 밴드 상단을 돌파하며 강한 모멘텀을 보여줍니다.`,
-    `어닝 서프라이즈 기대감으로 인해 투자 심리가 개선되었습니다. 지지선을 강하게 버티며 V자 반등을 시도하고 있는 차트 패턴입니다.`,
-    `RSI가 과매도 구간에서 벗어나며 추세 반전을 시도하고 있습니다. 주요 이동평균선을 상향 돌파하며 기술적 매수 신호가 포착되었습니다.`
-  ];
-  const tagsList = [
-    ['#골든크로스', '#거래량급증', '#모멘텀'],
-    ['#외국인순매수', '#섹터호조', '#신고가'],
-    ['#V자반등', '#실적기대', '#지지선확보'],
-    ['#RSI과매도', '#추세전환', '#단기스윙']
-  ];
-
-  // Use rank to pick a somewhat deterministic reason
-  const idx = (stock.rank - 1) % reasons.length;
-  return {
-    text: reasons[idx],
-    tags: tagsList[idx]
-  };
-}
 
 // Event Delegation for Sidebar clicks
 if (sidebarList) {
@@ -206,11 +184,11 @@ if (sidebarList) {
       modalStockChange.textContent = stock.change;
       modalStockChange.className = changeClass;
 
-      const reasonData = getDummyReason(stock);
-      modalReasonText.textContent = reasonData.text;
+      modalReasonText.textContent = stock.reason_text || "분석 데이터를 불러올 수 없습니다.";
 
       modalTagsContainer.innerHTML = '';
-      reasonData.tags.forEach(tag => {
+      const tags = stock.reason_tags || [];
+      tags.forEach(tag => {
         const span = document.createElement('span');
         span.className = 'tag';
         span.textContent = tag;
@@ -234,7 +212,7 @@ async function fetchRecommendations(mode = 'auto') {
   if (introCrawl) introCrawl.innerHTML = '<div class="intro-title"><p>AI Prediction</p><h1>데이터 분석 중...</h1><p>잠시만 기다려주세요.</p></div>';
 
   // Update button UI
-  if (mode === '2026-05-01') {
+  if (mode === '2026-05-15') {
     if (btnWeekly) btnWeekly.classList.add('active');
     if (btnToday) btnToday.classList.remove('active');
   } else {
@@ -346,11 +324,11 @@ if (aiSearchBtn) {
 }
 
 
-if (btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('2026-05-01'); });
+if (btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('2026-05-15'); });
 if (btnToday) btnToday.addEventListener('click', () => { fetchRecommendations('today'); });
 
 // Initial fetch
-fetchRecommendations('2026-05-01');
+fetchRecommendations('2026-05-15');
 
 
 function finishIntro() {
@@ -508,6 +486,36 @@ const tooltipName = document.getElementById('tooltip-name');
 const tooltipPrice = document.getElementById('tooltip-price');
 const tooltipChange = document.getElementById('tooltip-change');
 const tooltipLogo = document.getElementById('tooltip-logo');
+
+window.addEventListener('click', (event) => {
+  if (hoveredStock !== null) {
+    const prevStockHitbox = characterMeshes.find(m => m.userData.id === hoveredStock);
+    if (prevStockHitbox) {
+      const stock = prevStockHitbox.userData;
+
+      modalStockName.textContent = stock.name || stock.symbol;
+      modalStockSymbol.textContent = stock.symbol;
+      modalStockPrice.textContent = stock.price || 'N/A';
+
+      const changeClass = stock.change.startsWith('-') ? 'negative' : 'positive';
+      modalStockChange.textContent = stock.change;
+      modalStockChange.className = changeClass;
+
+      modalReasonText.textContent = stock.reason_text || "분석 요약을 불러올 수 없습니다.";
+
+      modalTagsContainer.innerHTML = '';
+      const tags = stock.reason_tags || [];
+      tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = tag;
+        modalTagsContainer.appendChild(span);
+      });
+
+      reasonModal.classList.remove('hidden');
+    }
+  }
+});
 
 window.addEventListener('mousemove', (event) => {
   // Normalize mouse coordinates

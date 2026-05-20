@@ -33,7 +33,15 @@ def get_target_date(mode="auto"):
     """
     mode='auto': 가장 최근 금요일(미래 제외)을 반환
     mode='today': 오늘 날짜 반환
+    mode='YYYY-MM-DD': 해당 날짜 반환
     """
+    if mode != "auto" and mode != "today":
+        try:
+            datetime.datetime.strptime(mode, "%Y-%m-%d")
+            return mode
+        except ValueError:
+            pass
+            
     today = datetime.date.today()
     if mode == "today":
         return today.strftime("%Y-%m-%d")
@@ -170,18 +178,70 @@ def get_top_10_recommendations(mode="auto"):
     predictions['Change'] = final_df['Change_Display']
     
     bulls = predictions.sort_values(by=prob_col, ascending=False)
+    
+    # 특징값 백분위수 계산 (전체 종목 대비 상위/하위 퍼센트)
+    final_df['Vol_Ratio_Pct'] = final_df['Vol_Ratio'].rank(pct=True)
+    final_df['RSI_14_Pct'] = final_df['RSI_14'].rank(pct=True)
+    final_df['ROC_5_Pct'] = final_df['ROC_5'].rank(pct=True)
+    final_df['Dist_SMA10_Pct'] = final_df['Dist_SMA10'].rank(pct=True)
+    final_df['Dist_High52_Pct'] = final_df['Dist_High52'].rank(pct=True)
+
     results = []
     for i, (_, row) in enumerate(bulls.iterrows(), 1):
         prob = row[prob_col] * 100
-        # 회사 이름은 간단하게 Ticker 로 대체 (또는 Yahoo Finance에서 가져올 수도 있으나 속도상 생략)
+        ticker = row['Ticker']
+        
+        # 원래 데이터프레임에서 해당 티커의 백분위수 등 데이터 가져오기
+        orig_row = final_df[final_df['Ticker'] == ticker].iloc[0]
+        
+        reasons = []
+        tags = []
+        
+        # 1. 거래량 아웃라이어
+        vol_pct = orig_row['Vol_Ratio_Pct'] * 100
+        if vol_pct > 90:
+            reasons.append(f"최근 거래량이 전체 분석 종목 중 상위 {100 - vol_pct:.1f}% 수준으로 폭발하며 강력한 매수세가 확인됩니다.")
+            tags.append("#거래량급증")
+            
+        # 2. RSI 극단값
+        rsi = orig_row['RSI_14']
+        rsi_pct = orig_row['RSI_14_Pct'] * 100
+        if rsi < 40:
+            reasons.append(f"RSI(상대강도지수)가 {rsi:.1f}로 과매도 구간(하위 {rsi_pct:.1f}%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.")
+            tags.append("#과매도반등")
+        elif rsi > 70:
+            reasons.append(f"RSI 지표가 {rsi:.1f}를 기록하며 전체 상위 {100 - rsi_pct:.1f}%의 강한 추세 모멘텀을 형성하고 있습니다.")
+            tags.append("#강한모멘텀")
+            
+        # 3. 단기 수익률 아웃라이어
+        roc5_pct = orig_row['ROC_5_Pct'] * 100
+        if roc5_pct > 95:
+            reasons.append(f"최근 5일간 수익률이 전체 상위 {100 - roc5_pct:.1f}%를 기록하며 주도주 패턴을 보입니다.")
+            tags.append("#단기급등")
+            
+        # 4. 신고가 근접도
+        dist_high52 = orig_row['Dist_High52']
+        if dist_high52 > -0.05: # -5% 이내
+            reasons.append(f"52주 신고가 돌파까지 불과 {abs(dist_high52)*100:.1f}% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.")
+            tags.append("#신고가근접")
+            
+        # 특징이 없을 경우 기본 텍스트
+        if not reasons:
+            reasons.append("이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.")
+            tags.append("#안정적추세")
+            
+        reason_text = " ".join(reasons)
+
         results.append({
             "rank": int(i),
-            "id": str(row['Ticker']),
-            "name": str(row['Ticker']) + " Corp",
-            "symbol": str(row['Ticker']),
+            "id": str(ticker),
+            "name": str(ticker) + " Corp",
+            "symbol": str(ticker),
             "price": str(row['Price']),
             "change": str(row['Change']),
-            "prob": f"{prob:.1f}%"
+            "prob": f"{prob:.1f}%",
+            "reason_text": reason_text,
+            "reason_tags": tags[:3]
         })
 
         
