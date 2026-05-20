@@ -14,13 +14,13 @@ function mapToPodiumFormat(top3) {
   const podiumColors = [0xFFD700, 0xC0C0C0, 0xcd7f32]; // Gold, Silver, Bronze
   const heights = [2.2, 1.5, 1.0];
   const positions = [0, -2.5, 2.5]; // Center, Left, Right
-  
+
   // order by rank: 1st, 2nd, 3rd
   // However, rendering order in 3D: [2nd, 1st, 3rd] so positions match
   const orderedFor3D = [];
-  if(top3.length > 1) orderedFor3D.push({...top3[1], color: colors[0], height: heights[1], pos: positions[1], podiumColor: podiumColors[1]}); // 2nd
-  if(top3.length > 0) orderedFor3D.push({...top3[0], color: colors[1], height: heights[0], pos: positions[0], podiumColor: podiumColors[0]}); // 1st
-  if(top3.length > 2) orderedFor3D.push({...top3[2], color: colors[2], height: heights[2], pos: positions[2], podiumColor: podiumColors[2]}); // 3rd
+  if (top3.length > 1) orderedFor3D.push({ ...top3[1], color: colors[0], height: heights[1], pos: positions[1], podiumColor: podiumColors[1] }); // 2nd
+  if (top3.length > 0) orderedFor3D.push({ ...top3[0], color: colors[1], height: heights[0], pos: positions[0], podiumColor: podiumColors[0] }); // 1st
+  if (top3.length > 2) orderedFor3D.push({ ...top3[2], color: colors[2], height: heights[2], pos: positions[2], podiumColor: podiumColors[2] }); // 3rd
   return orderedFor3D;
 }
 
@@ -128,6 +128,14 @@ const skipBtn = document.getElementById('skip-button');
 const uiContainer = document.getElementById('ui-container');
 const sidebarContainer = document.getElementById('sidebar-container');
 const sidebarList = document.getElementById('sidebar-list');
+const introBgm = document.getElementById('intro-bgm');
+
+// Try to play BGM (Browsers might block autoplay if no prior interaction, 
+// but clicking the link from index.html usually satisfies this requirement)
+if (introBgm) {
+  introBgm.volume = 0.5;
+  introBgm.play().catch(e => console.log('Autoplay blocked by browser:', e));
+}
 
 // Buttons for mode switching
 const btnWeekly = document.getElementById('btn-weekly');
@@ -171,7 +179,7 @@ function getDummyReason(stock) {
     ['#V자반등', '#실적기대', '#지지선확보'],
     ['#RSI과매도', '#추세전환', '#단기스윙']
   ];
-  
+
   // Use rank to pick a somewhat deterministic reason
   const idx = (stock.rank - 1) % reasons.length;
   return {
@@ -185,22 +193,22 @@ if (sidebarList) {
   sidebarList.addEventListener('click', (e) => {
     const item = e.target.closest('.sidebar-item');
     if (!item) return;
-    
+
     const index = item.getAttribute('data-index');
     if (index !== null && allStocks[index]) {
       const stock = allStocks[index];
-      
+
       modalStockName.textContent = stock.name || stock.symbol;
       modalStockSymbol.textContent = stock.symbol;
-      modalStockPrice.textContent = stock.price || 'N/A'; 
-      
+      modalStockPrice.textContent = stock.price || 'N/A';
+
       const changeClass = stock.change.startsWith('-') ? 'negative' : 'positive';
       modalStockChange.textContent = stock.change;
       modalStockChange.className = changeClass;
-      
+
       const reasonData = getDummyReason(stock);
       modalReasonText.textContent = reasonData.text;
-      
+
       modalTagsContainer.innerHTML = '';
       reasonData.tags.forEach(tag => {
         const span = document.createElement('span');
@@ -208,7 +216,7 @@ if (sidebarList) {
         span.textContent = tag;
         modalTagsContainer.appendChild(span);
       });
-      
+
       reasonModal.classList.remove('hidden');
     }
   });
@@ -218,32 +226,32 @@ let introFinished = false;
 let isFetching = false;
 
 async function fetchRecommendations(mode = 'auto') {
-  if(isFetching) return;
+  if (isFetching) return;
   isFetching = true;
-  
+
   // Set loading state in UI
-  if(sidebarList) sidebarList.innerHTML = '<div style="padding:20px;color:#fff;">AI가 실시간으로 3000여 개의 종목 데이터를 분석 중입니다. 약 1~2분 정도 소요될 수 있습니다...</div>';
-  if(introCrawl) introCrawl.innerHTML = '<div class="intro-title"><p>AI Prediction</p><h1>데이터 분석 중...</h1><p>잠시만 기다려주세요.</p></div>';
-  
+  if (sidebarList) sidebarList.innerHTML = '<div style="padding:20px;color:#fff;">AI가 실시간으로 3000여 개의 종목 데이터를 분석 중입니다. 약 1~2분 정도 소요될 수 있습니다...</div>';
+  if (introCrawl) introCrawl.innerHTML = '<div class="intro-title"><p>AI Prediction</p><h1>데이터 분석 중...</h1><p>잠시만 기다려주세요.</p></div>';
+
   // Update button UI
-  if(mode === 'auto') {
-    if(btnWeekly) btnWeekly.classList.add('active');
-    if(btnToday) btnToday.classList.remove('active');
+  if (mode === '2026-05-01') {
+    if (btnWeekly) btnWeekly.classList.add('active');
+    if (btnToday) btnToday.classList.remove('active');
   } else {
-    if(btnWeekly) btnWeekly.classList.remove('active');
-    if(btnToday) btnToday.classList.add('active');
+    if (btnWeekly) btnWeekly.classList.remove('active');
+    if (btnToday) btnToday.classList.add('active');
   }
 
   try {
     const response = await fetch(`http://localhost:8001/api/recommend?date=${mode}`);
     const result = await response.json();
-    if(result.status === 'success' && result.data && result.data.length > 0) {
+    if (result.status === 'success' && result.data && result.data.length > 0) {
       allStocks = result.data;
       stocks = mapToPodiumFormat(allStocks.slice(0, 3));
       updateUI(mode);
       // If intro is already finished but scene wasn't built (due to missing data), build it now
-      if(introFinished) {
-        if(!isSceneBuilt) {
+      if (introFinished) {
+        if (!isSceneBuilt) {
           buildMainScene();
         } else {
           clearMainScene();
@@ -253,19 +261,19 @@ async function fetchRecommendations(mode = 'auto') {
     } else {
       console.error("데이터가 없거나 오류 발생:", result);
       const errorMsg = result.message || "데이터가 없습니다.";
-      if(sidebarList) sidebarList.innerHTML = `<div style="padding:20px;color:#ff6b6b;font-weight:bold;line-height:1.5;">❌ 추천 데이터를 불러오는 데 실패했습니다.<br><br><span style="font-size:12px;color:#ffb3b3;">오류: ${errorMsg}</span></div>`;
-      if(introCrawl) introCrawl.innerHTML = `<div class="intro-title"><p>AI Prediction</p><h1 style="color:#ff6b6b;">데이터 분석 실패</h1><p>백엔드 서버 연산 중 오류가 발생했습니다.</p></div>`;
-      
-      if(!introFinished) {
+      if (sidebarList) sidebarList.innerHTML = `<div style="padding:20px;color:#ff6b6b;font-weight:bold;line-height:1.5;">❌ 추천 데이터를 불러오는 데 실패했습니다.<br><br><span style="font-size:12px;color:#ffb3b3;">오류: ${errorMsg}</span></div>`;
+      if (introCrawl) introCrawl.innerHTML = `<div class="intro-title"><p>AI Prediction</p><h1 style="color:#ff6b6b;">데이터 분석 실패</h1><p>백엔드 서버 연산 중 오류가 발생했습니다.</p></div>`;
+
+      if (!introFinished) {
         setTimeout(finishIntro, 3000); // 오류 시 3초 후 인트로 스킵하여 메인 UI(사이드바) 확인 가능하게 함
       }
     }
-  } catch(e) {
+  } catch (e) {
     console.error("API 요청 실패:", e);
-    if(sidebarList) sidebarList.innerHTML = `<div style="padding:20px;color:#ff6b6b;font-weight:bold;line-height:1.5;">❌ API 요청에 실패했습니다.<br><br><span style="font-size:12px;color:#ffb3b3;">네트워크 오류 또는 백엔드 서버가 꺼져 있습니다.</span></div>`;
-    if(introCrawl) introCrawl.innerHTML = `<div class="intro-title"><p>AI Prediction</p><h1 style="color:#ff6b6b;">서버 연결 실패</h1><p>백엔드 서버와 연결할 수 없습니다.</p></div>`;
-    
-    if(!introFinished) {
+    if (sidebarList) sidebarList.innerHTML = `<div style="padding:20px;color:#ff6b6b;font-weight:bold;line-height:1.5;">❌ API 요청에 실패했습니다.<br><br><span style="font-size:12px;color:#ffb3b3;">네트워크 오류 또는 백엔드 서버가 꺼져 있습니다.</span></div>`;
+    if (introCrawl) introCrawl.innerHTML = `<div class="intro-title"><p>AI Prediction</p><h1 style="color:#ff6b6b;">서버 연결 실패</h1><p>백엔드 서버와 연결할 수 없습니다.</p></div>`;
+
+    if (!introFinished) {
       setTimeout(finishIntro, 3000);
     }
   } finally {
@@ -278,13 +286,12 @@ function updateUI(mode) {
     <p>AI Prediction</p>
     <h1>TOP 10 RECOMMENDS</h1>
     <p style="font-size: 1.2rem; margin-top: 10px; color: #ffaa00;">
-      시가총액 상위 1,000개 우량주 기준<br>
-      (기준일: ${mode})
+      시가총액 상위 1,000개 우량주 기준
     </p>
   </div><br><br>`;
 
   let sidebarHtml = '';
-  
+
   const top10 = allStocks.slice(0, 10);
 
   for (let i = top10.length - 1; i >= 0; i--) {
@@ -294,7 +301,7 @@ function updateUI(mode) {
       <p>현재가: ${s.price} | 확률: ${s.prob}</p>
     </div><br>`;
   }
-  if(introCrawl) introCrawl.innerHTML = crawlHtml;
+  if (introCrawl) introCrawl.innerHTML = crawlHtml;
 
   for (let i = 0; i < top10.length; i++) {
     const s = top10[i];
@@ -312,7 +319,7 @@ function updateUI(mode) {
       </div>
     `;
   }
-  if(sidebarList) sidebarList.innerHTML = sidebarHtml;
+  if (sidebarList) sidebarList.innerHTML = sidebarHtml;
 }
 
 // AI Ranking Search Logic
@@ -323,24 +330,24 @@ const aiSearchResult = document.getElementById('ai-search-result');
 if (aiSearchBtn) {
   aiSearchBtn.addEventListener('click', () => {
     const q = aiSearchInput.value.trim().toUpperCase();
-    if(!q) return;
-    
+    if (!q) return;
+
     const found = allStocks.find(s => s.symbol === q);
-    if(found) {
+    if (found) {
       aiSearchResult.innerHTML = `${found.symbol} 종목은 AI 추천 <b style="font-size:16px;">${found.rank}위</b> 입니다.`;
     } else {
       aiSearchResult.innerHTML = `${q} 종목은 분석 데이터에 존재하지 않습니다.`;
     }
   });
-  
+
   aiSearchInput.addEventListener('keypress', (e) => {
-    if(e.key === 'Enter') aiSearchBtn.click();
+    if (e.key === 'Enter') aiSearchBtn.click();
   });
 }
 
 
-if(btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('2026-05-01'); });
-if(btnToday) btnToday.addEventListener('click', () => { fetchRecommendations('today'); });
+if (btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('2026-05-01'); });
+if (btnToday) btnToday.addEventListener('click', () => { fetchRecommendations('today'); });
 
 // Initial fetch
 fetchRecommendations('2026-05-01');
@@ -349,6 +356,11 @@ fetchRecommendations('2026-05-01');
 function finishIntro() {
   if (introFinished) return;
   introFinished = true;
+
+  // Fade out BGM
+  if (introBgm) {
+    gsap.to(introBgm, { volume: 0, duration: 1, onComplete: () => introBgm.pause() });
+  }
 
   // Fade out intro container
   gsap.to(introContainer, {

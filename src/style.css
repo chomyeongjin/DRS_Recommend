@@ -382,7 +382,7 @@ body {
 
 /* Filter Buttons */
 .filter-btn {
-  background: rgba(255, 255, 255, 0.1);
+  background: #111111;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
   padding: 8px 16px;
@@ -401,6 +401,7 @@ body {
 .filter-btn.active {
   background: #feda4a;
   border-color: #e0cc00;
+  color: #000;
   box-shadow: 0 0 10px rgb(233, 210, 41);
 }
 
