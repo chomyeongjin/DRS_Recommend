@@ -44,19 +44,14 @@ if __name__ == "__main__":
 # 상위 폴더의 dist 디렉토리를 가리킴 (Vite 빌드 결과물)
 dist_dir = os.path.join(os.path.dirname(__file__), "..", "dist")
 if os.path.isdir(dist_dir):
-    # /assets 경로로 js, css 파일 등 서빙
-    app.mount("/assets", StaticFiles(directory=os.path.join(dist_dir, "assets")), name="assets")
+    # Search API 마운트 및 warmup 트리거 추가
+    from search_api.main import app as search_app, warmup as search_warmup
     
-    # 루트 경로(/) 접속 시 index.html 반환
-    @app.get("/")
-    def read_index():
-        return FileResponse(os.path.join(dist_dir, "index.html"))
-    
-    # /search 경로나 /recommend 경로 등이 있다면 각각 매핑
-    @app.get("/search.html")
-    def read_search():
-        return FileResponse(os.path.join(dist_dir, "search.html"))
+    @app.on_event("startup")
+    def startup_event():
+        search_warmup()
         
-    @app.get("/recommend.html")
-    def read_recommend():
-        return FileResponse(os.path.join(dist_dir, "recommend.html"))
+    app.mount("/api/search", search_app)
+
+    # 나머지 모든 정적 파일(HTML, JS, CSS, MP3, 3D 모델 등) 서빙
+    app.mount("/", StaticFiles(directory=dist_dir, html=True), name="static")

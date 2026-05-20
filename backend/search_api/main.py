@@ -58,8 +58,8 @@ CACHE = {
     "matrix": None,
     "tickers": None,
     "target_len": settings.target_len,
-    "norm_map": None,   # ticker -> normalized vector(list)
-    "ticker_info": None,  # ticker -> company name mapping
+    "norm_map": {},   # ticker -> normalized vector(list)
+    "ticker_info": {},  # ticker -> company name mapping
 }
 CACHE_LOCK = threading.Lock()
 

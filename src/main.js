@@ -221,7 +221,7 @@ async function fetchRecommendations(mode = 'auto') {
   }
 
   try {
-    const response = await fetch(`http://localhost:8001/api/recommend?date=${mode}`);
+    const response = await fetch(`/api/recommend?date=${mode}`);
     const result = await response.json();
     if (result.status === 'success' && result.data && result.data.length > 0) {
       allStocks = result.data;

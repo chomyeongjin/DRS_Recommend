@@ -1,5 +1,5 @@
 # 1. 프론트엔드 빌드 스테이지
-FROM node:18 AS frontend-builder
+FROM node:20 AS frontend-builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
