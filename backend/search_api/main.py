@@ -55,10 +55,12 @@ if web_dir.exists():
 
 # Global cache with thread safety
 CACHE = {
-    "matrix": None,
-    "tickers": None,
+    "period_data": {
+        "3m": {"matrix": None, "tickers": None, "norm_map": {}},
+        "1y": {"matrix": None, "tickers": None, "norm_map": {}},
+        "2y": {"matrix": None, "tickers": None, "norm_map": {}}
+    },
     "target_len": settings.target_len,
-    "norm_map": {},   # ticker -> normalized vector(list)
     "ticker_info": {},  # ticker -> company name mapping
 }
 CACHE_LOCK = threading.Lock()
@@ -128,13 +130,20 @@ def warmup():
             else:
                 # Old format: MA20 time series
                 ma20 = {c: df[c].dropna() for c in df.columns}
-                matrix, T = dict_to_matrix(ma20, target_len=CACHE["target_len"])
-                norm_map = {t: matrix[i, :].tolist() for i, t in enumerate(T)}
+                
+                from .data_io import slice_series_dict
+                periods = {"3m": 90, "1y": 365, "2y": 730}
+                for p_name, p_days in periods.items():
+                    ma20_sliced = slice_series_dict(ma20, p_days)
+                    matrix, T = dict_to_matrix(ma20_sliced, target_len=CACHE["target_len"])
+                    norm_map = {t: matrix[i, :].tolist() for i, t in enumerate(T)}
+                    
+                    with CACHE_LOCK:
+                        CACHE["period_data"][p_name]["matrix"] = matrix
+                        CACHE["period_data"][p_name]["tickers"] = T
+                        CACHE["period_data"][p_name]["norm_map"] = norm_map
 
-                with CACHE_LOCK:
-                    CACHE.update({"matrix": matrix, "tickers": T, "norm_map": norm_map})
-
-                logger.info(f"Warmup completed: {len(T)} tickers loaded into cache")
+                logger.info("Warmup completed: loaded multi-period cache")
         else:
             logger.info("No cached data found. Please run /ingest first.")
     except Exception as e:
@@ -149,7 +158,7 @@ def health():
 @app.get("/stats")
 def stats():
     """현재 캐시된 티커 개수와 데이터 소스 정보 반환"""
-    ticker_count = len(CACHE.get("tickers", [])) if CACHE.get("tickers") else 0
+    ticker_count = len(CACHE["period_data"]["1y"].get("tickers", [])) if CACHE["period_data"]["1y"].get("tickers") else 0
 
     # PostgreSQL 세그먼트 개수 (data_source가 postgresql인 경우)
     segment_count = 0
@@ -197,8 +206,7 @@ def ingest(
             raw = download_ohlc(tickers, period="2y")
             ok = tickers
 
-        # 3) 기간 슬라이싱 & MA20 계산
-        raw = last_n_days(raw, n=req.days)
+        # 3) MA20 계산 (슬라이싱 없이 전체 기간)
         ma20 = compute_ma20(raw)
         logger.info(f"MA20 calculated for {len(ma20)} tickers")
 
@@ -207,21 +215,24 @@ def ingest(
         save_meta({
             "tickers": list(ma20.keys()),
             "file": p,
-            "days": req.days,
             "ts": time.time(),
             "ok_count": len(ok)
         })
         logger.info(f"Data saved to {p}")
 
-        # 5) 메모리 캐시 준비(행렬/티커/정규화 맵)
-        matrix, T = dict_to_matrix(ma20, target_len=CACHE["target_len"])
-        norm_map = {t: matrix[i, :].tolist() for i, t in enumerate(T)}
+        # 5) 메모리 캐시 준비(다중 기간)
+        from .data_io import slice_series_dict
+        periods = {"3m": 90, "1y": 365, "2y": 730}
+        
+        for p_name, p_days in periods.items():
+            ma20_sliced = slice_series_dict(ma20, p_days)
+            matrix, T = dict_to_matrix(ma20_sliced, target_len=CACHE["target_len"])
+            norm_map = {t: matrix[i, :].tolist() for i, t in enumerate(T)}
+            with CACHE_LOCK:
+                CACHE["period_data"][p_name].update({"matrix": matrix, "tickers": T, "norm_map": norm_map})
 
-        with CACHE_LOCK:
-            CACHE.update({"matrix": matrix, "tickers": T, "norm_map": norm_map})
-
-        logger.info(f"Ingest completed: {len(T)} tickers cached")
-        return {"tickers_count": len(T), "ok_count": len(ok), "target_len": CACHE["target_len"]}
+        logger.info(f"Ingest completed: Multi-period cached")
+        return {"ok_count": len(ok), "target_len": CACHE["target_len"]}
 
     except Exception as e:
         logger.error(f"Ingest failed: {e}")
@@ -252,21 +263,29 @@ def similar(request: Request, req: SketchRequest):
     logger.info(f"Similar search started: sketch length={len(req.y)}")
 
     try:
+        p_name = req.period if req.period in ["3m", "1y", "2y"] else "1y"
+        p_cache = CACHE["period_data"][p_name]
+
         # 캐시 없거나 norm_map 미구성 → 디스크에서 불러와 구성
-        if CACHE["matrix"] is None or CACHE.get("norm_map") is None:
+        if p_cache["matrix"] is None or not p_cache.get("norm_map"):
             logger.info("Cache miss, loading from disk...")
             df = load_ma20_parquet()
             if df is None or df.empty:
                 raise HTTPException(400, "먼저 /ingest로 데이터 캐시를 준비하세요.")
 
             ma20 = {c: df[c].dropna() for c in df.columns}
-            matrix, T = dict_to_matrix(ma20, target_len=req.target_len)
-            norm_map = {t: matrix[i, :].tolist() for i, t in enumerate(T)}
+            
+            from .data_io import slice_series_dict
+            periods = {"3m": 90, "1y": 365, "2y": 730}
+            for pn, p_days in periods.items():
+                ma20_sliced = slice_series_dict(ma20, p_days)
+                matrix, T = dict_to_matrix(ma20_sliced, target_len=req.target_len)
+                n_map = {t: matrix[i, :].tolist() for i, t in enumerate(T)}
+                with CACHE_LOCK:
+                    CACHE["period_data"][pn].update({"matrix": matrix, "tickers": T, "norm_map": n_map})
 
-            with CACHE_LOCK:
-                CACHE.update({"matrix": matrix, "tickers": T, "target_len": req.target_len, "norm_map": norm_map})
-
-            logger.info(f"Cache loaded: {len(T)} tickers")
+            p_cache = CACHE["period_data"][p_name]
+            logger.info("Cache loaded for periods")
 
         # 스케치 정규화
         y = np.array(req.y, dtype=float)
@@ -279,11 +298,11 @@ def similar(request: Request, req: SketchRequest):
             sketch_vec = np.nan_to_num(sketch_vec, nan=0.0)
 
         # 1. 고속 1차 필터링 (Numpy 연산)
-        matrix = CACHE["matrix"]
+        matrix = p_cache["matrix"]
         sketch_norm = np.linalg.norm(sketch_vec)
         if sketch_norm < 1e-10:
             filtered_matrix = matrix
-            filtered_tickers = CACHE["tickers"]
+            filtered_tickers = p_cache["tickers"]
         else:
             # db_matrix의 norm 계산 (0방지 처리)
             db_norms = np.linalg.norm(matrix, axis=1)
@@ -296,11 +315,11 @@ def similar(request: Request, req: SketchRequest):
             cos_sims = np.nan_to_num(cos_sims, nan=-1.0)
             
             # 상위 100개 인덱스 추출
-            k_filter = min(100, len(CACHE["tickers"]))
+            k_filter = min(100, len(p_cache["tickers"]))
             top_indices = np.argsort(cos_sims)[-k_filter:][::-1]
             
             filtered_matrix = matrix[top_indices]
-            filtered_tickers = [CACHE["tickers"][i] for i in top_indices]
+            filtered_tickers = [p_cache["tickers"][i] for i in top_indices]
             logger.debug(f"Pre-filtered top {k_filter} candidates")
 
         # 2. 정밀 Top5 랭킹 (DTW, Pearson 등 적용)
@@ -310,10 +329,10 @@ def similar(request: Request, req: SketchRequest):
         # 응답(오버레이용 정규화 시리즈 포함)
         items = []
         for i, (t, s) in enumerate(pairs):
-            series_norm = CACHE["norm_map"].get(t)
+            series_norm = p_cache["norm_map"].get(t)
             if series_norm is None:
-                idx = CACHE["tickers"].index(t)
-                series_norm = CACHE["matrix"][idx, :].tolist()
+                idx = p_cache["tickers"].index(t)
+                series_norm = matrix[idx, :].tolist()
 
             # NaN 제거 (리스트인 경우)
             if isinstance(series_norm, list):
@@ -424,13 +443,16 @@ def compare_ticker(request: Request, req: CompareTickerRequest):
 
     ticker_upper = req.ticker.upper().strip()
 
-    if CACHE["matrix"] is None or CACHE.get("norm_map") is None:
-        raise HTTPException(400, "서버 캐시가 준비되지 않았습니다.")
-
-    if ticker_upper not in CACHE["tickers"]:
-        raise HTTPException(404, f"티커 '{ticker_upper}'를 데이터에서 찾을 수 없습니다.")
-
     try:
+        p_name = req.period if req.period in ["3m", "1y", "2y"] else "1y"
+        p_cache = CACHE["period_data"][p_name]
+
+        if p_cache["matrix"] is None or not p_cache.get("norm_map"):
+            raise HTTPException(400, "서버 캐시가 준비되지 않았습니다.")
+
+        if ticker_upper not in p_cache["tickers"]:
+            raise HTTPException(404, f"티커 '{ticker_upper}'를 데이터에서 찾을 수 없습니다.")
+
         # 스케치 정규화
         y = np.array(req.y, dtype=float)
         sketch_vec = normalize_pipeline(y, target_len=CACHE["target_len"])
@@ -439,15 +461,15 @@ def compare_ticker(request: Request, req: CompareTickerRequest):
             sketch_vec = np.nan_to_num(sketch_vec, nan=0.0)
 
         # 해당 종목 매트릭스 인덱스 찾기
-        idx = CACHE["tickers"].index(ticker_upper)
-        series_vec = CACHE["matrix"][idx]
+        idx = p_cache["tickers"].index(ticker_upper)
+        series_vec = p_cache["matrix"][idx]
 
         # 앙상블 스코어 계산
         from .similar import ensemble_score
         score = ensemble_score(sketch_vec, series_vec)
 
         # 응답 구성
-        series_norm = CACHE["norm_map"].get(ticker_upper)
+        series_norm = p_cache["norm_map"].get(ticker_upper)
         if series_norm is None:
             series_norm = series_vec.tolist()
 

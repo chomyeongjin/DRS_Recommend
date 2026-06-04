@@ -79,6 +79,8 @@ document.getElementById("search").onclick = async () => {
   const y = resampleY(pts, 128);
   if (y.length < 10) return toast("스케치를 먼저 그려주세요!");
 
+  const period = document.getElementById("period").value;
+
   // 로딩 표시
   setStatus("유사도 계산중...", false);
   const searchBtn = document.getElementById("search");
@@ -88,7 +90,7 @@ document.getElementById("search").onclick = async () => {
     // Parquet 캐시 기반 검색 사용 (/similar) - 빠름!
     const r = await fetch(`${API}/similar`, {
       method:"POST", headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({ y, out_len: 128 })
+      body: JSON.stringify({ y, target_len: 128, period })
     });
     const data = await r.json();
     if(!r.ok){
@@ -151,11 +153,12 @@ compareBtn.onclick = async () => {
 
   compareBtn.disabled = true;
   compareBtn.textContent = "비교 중...";
+  const period = document.getElementById("period").value;
 
   try {
     const r = await fetch(`${API}/compare_ticker`, {
       method: "POST", headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ y, target_len: 128, ticker })
+      body: JSON.stringify({ y, target_len: 128, period, ticker })
     });
     const data = await r.json();
 

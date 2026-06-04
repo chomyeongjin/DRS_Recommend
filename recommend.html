@@ -12,6 +12,12 @@
 </head>
 
 <body>
+  <div id="start-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#090a0f; z-index:9999; display:flex; justify-content:center; align-items:center; flex-direction:column; color:white;">
+    <h1 style="font-family:'Outfit', sans-serif; font-size:3rem; margin-bottom:20px; text-align:center;">Chart Dr. AI</h1>
+    <p style="margin-bottom:30px; color:#aaa; font-size:1.2rem; text-align:center;">이어폰 착용을 권장합니다 🎧</p>
+    <button id="start-btn" style="padding:15px 40px; font-size:1.5rem; background:#feda4a; color:black; border:none; border-radius:8px; cursor:pointer; font-weight:900; box-shadow: 0 0 20px rgba(254, 218, 74, 0.5);">ENTER</button>
+  </div>
+
   <div id="intro-container">
     <audio id="intro-bgm" src="/intro.mp3" preload="auto"></audio>
     <div class="fade"></div>

@@ -130,11 +130,33 @@ const sidebarContainer = document.getElementById('sidebar-container');
 const sidebarList = document.getElementById('sidebar-list');
 const introBgm = document.getElementById('intro-bgm');
 
-// Try to play BGM (Browsers might block autoplay if no prior interaction, 
-// but clicking the link from index.html usually satisfies this requirement)
-if (introBgm) {
-  introBgm.volume = 0.5;
-  introBgm.play().catch(e => console.log('Autoplay blocked by browser:', e));
+// Start Overlay Logic for Audio Autoplay Policy
+const startOverlay = document.getElementById('start-overlay');
+const startBtn = document.getElementById('start-btn');
+
+// Pause the intro animation initially
+if (introCrawl) {
+  introCrawl.style.animationPlayState = 'paused';
+}
+
+if (startBtn) {
+  startBtn.addEventListener('click', () => {
+    // Hide overlay
+    gsap.to(startOverlay, { opacity: 0, duration: 0.5, onComplete: () => {
+      startOverlay.style.display = 'none';
+      
+      // Play background music
+      if (introBgm) {
+        introBgm.volume = 0.5;
+        introBgm.play().catch(e => console.log('Autoplay blocked:', e));
+      }
+      
+      // Resume intro animation
+      if (introCrawl) {
+        introCrawl.style.animationPlayState = 'running';
+      }
+    }});
+  });
 }
 
 // Buttons for mode switching
@@ -208,7 +230,7 @@ async function fetchRecommendations(mode = 'auto') {
   isFetching = true;
 
   // Set loading state in UI
-  if (sidebarList) sidebarList.innerHTML = '<div style="padding:20px;color:#fff;">AI가 실시간으로 3000여 개의 종목 데이터를 분석 중입니다. 약 1~2분 정도 소요될 수 있습니다...</div>';
+  if (sidebarList) sidebarList.innerHTML = '<div style="padding:20px;color:#fff;">AI가 실시간으로 300여 개의 우량 종목 데이터를 분석 중입니다. 약 10~20초 정도 소요될 수 있습니다...</div>';
   if (introCrawl) introCrawl.innerHTML = '<div class="intro-title"><p>AI Prediction</p><h1>데이터 분석 중...</h1><p>잠시만 기다려주세요.</p></div>';
 
   // Update button UI

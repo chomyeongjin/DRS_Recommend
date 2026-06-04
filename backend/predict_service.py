@@ -69,7 +69,8 @@ def get_top_10_recommendations(mode="auto"):
             print(f"[캐시 읽기 실패] 새로 연산합니다: {e}")
 
     model = load_ml_model()
-    tickers = get_all_tickers()[:3000] # 최적화를 위해 일부 자르기(원래 코드와 동일)
+    # 최적화를 위해 실시간 모드에서는 시가총액 상위 300개 종목만 스캔 (속도 10배 향상)
+    tickers = get_all_tickers()[:300]
     
     all_rows = []
     chunk_size = 500

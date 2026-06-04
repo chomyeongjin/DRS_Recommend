@@ -48,6 +48,19 @@ def last_n_days(df: pd.DataFrame, n: int = 365) -> pd.DataFrame:
     logger.debug(f"Sliced to last {n} days: {len(result)} rows")
     return result
 
+def slice_series_dict(ma_dict: Dict[str, pd.Series], days: int) -> Dict[str, pd.Series]:
+    """
+    각 Series를 최근 n일(days) 기준으로 슬라이싱
+    """
+    out = {}
+    for t, s in ma_dict.items():
+        if len(s) == 0:
+            continue
+        sliced = s.loc[s.index >= (s.index.max() - pd.Timedelta(days=days))]
+        out[t] = sliced
+    logger.debug(f"Sliced dictionary to last {days} days")
+    return out
+
 def compute_ma20(ohlc_multi: pd.DataFrame) -> Dict[str, pd.Series]:
     """
     각 티커별 Close 가격의 20일 이동평균 계산
