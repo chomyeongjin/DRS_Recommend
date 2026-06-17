@@ -256,5 +256,175 @@ def get_top_10_recommendations(mode="auto"):
         
     return results
 
+def get_recommendation_performance(mode="auto"):
+    target_date = get_target_date(mode)
+    print(f"[성과 평가 기준일] {target_date}")
+    
+    # 1. 캐시 폴더에서 cache_*.json 검색
+    import glob
+    import re
+    
+    cache_pattern = os.path.join(DATA_DIR, "cache_*.json")
+    cache_files = glob.glob(cache_pattern)
+    
+    dates = []
+    for f in cache_files:
+        basename = os.path.basename(f)
+        match = re.search(r"cache_(\d{4}-\d{2}-\d{2})\.json", basename)
+        if match:
+            dates.append(match.group(1))
+            
+    dates = sorted(list(set(dates)))
+    
+    # target_date 이전의 가장 최근 캐시 날짜 찾기
+    prev_date = None
+    for d in reversed(dates):
+        if d < target_date:
+            prev_date = d
+            break
+            
+    if not prev_date:
+        return {
+            "status": "error",
+            "message": f"target_date({target_date}) 이전의 추천 캐시 파일(cache_*.json)을 찾을 수 없습니다."
+        }
+        
+    prev_cache_file = os.path.join(DATA_DIR, f"cache_{prev_date}.json")
+    print(f"[이전 추천 데이터 로드] {prev_cache_file}")
+    
+    try:
+        with open(prev_cache_file, 'r', encoding='utf-8') as f:
+            prev_recommendations = json.load(f)
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": f"이전 캐시 파일을 읽는 도중 오류가 발생했습니다: {e}"
+        }
+        
+    # Top 10 선정 (rank가 1~10인 것)
+    top_10 = [item for item in prev_recommendations if item.get('rank', 99) <= 10]
+    if not top_10:
+        top_10 = prev_recommendations[:10]
+        
+    if not top_10:
+        return {
+            "status": "error",
+            "message": f"이전 캐시({prev_date})에 추천 정보가 존재하지 않습니다."
+        }
+        
+    tickers = [item['symbol'] for item in top_10]
+    
+    # 2. yfinance를 사용하여 현재가 및 이전 날짜 주가 다운로드
+    # 이전 날짜(prev_date)부터 오늘까지의 가격 데이터를 받아옴
+    today_dt = datetime.date.today()
+    tomorrow_dt = today_dt + datetime.timedelta(days=1)
+    tomorrow_str = tomorrow_dt.strftime("%Y-%m-%d")
+    
+    try:
+        # SPY(벤치마크)와 함께 다운로드
+        all_tickers = tickers + ["SPY"]
+        print(f"[주가 조회] {prev_date} ~ {tomorrow_str} ({len(all_tickers)}개 종목)")
+        data = yf.download(all_tickers, start=prev_date, end=tomorrow_str, progress=False)
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": f"주가 정보를 다운로드하는 도중 오류가 발생했습니다: {e}"
+        }
+        
+    if data.empty:
+        return {
+            "status": "error",
+            "message": "주가 데이터를 가져오지 못했습니다. 시장이 닫혔거나 종목 정보를 확인할 수 없습니다."
+        }
+        
+    performance_list = []
+    
+    # SPY 벤치마크 수익률 계산
+    spy_prev = None
+    spy_curr = None
+    
+    if isinstance(data.columns, pd.MultiIndex):
+        try:
+            spy_df = data.xs("SPY", level=1, axis=1).dropna(subset=['Close'])
+            if not spy_df.empty:
+                spy_prev = float(spy_df['Close'].iloc[0])
+                spy_curr = float(spy_df['Close'].iloc[-1])
+        except KeyError:
+            pass
+    else:
+        if len(all_tickers) == 1:
+            spy_df = data.dropna(subset=['Close'])
+            if not spy_df.empty:
+                spy_prev = float(spy_df['Close'].iloc[0])
+                spy_curr = float(spy_df['Close'].iloc[-1])
+                
+    spy_return = None
+    if spy_prev and spy_curr:
+        spy_return = ((spy_curr - spy_prev) / spy_prev) * 100
+        
+    for item in top_10:
+        sym = item['symbol']
+        name = item.get('name', f"{sym} Corp")
+        
+        # 캐시된 추천 당시의 가격 파싱 (예: "$30.57" -> 30.57)
+        try:
+            prev_price_cached = float(item['price'].replace('$', '').replace(',', ''))
+        except (ValueError, KeyError, AttributeError):
+            prev_price_cached = None
+            
+        prev_price_yf = None
+        curr_price_yf = None
+        
+        if isinstance(data.columns, pd.MultiIndex):
+            try:
+                sym_df = data.xs(sym, level=1, axis=1).dropna(subset=['Close'])
+                if not sym_df.empty:
+                    prev_price_yf = float(sym_df['Close'].iloc[0])
+                    curr_price_yf = float(sym_df['Close'].iloc[-1])
+            except KeyError:
+                pass
+                
+        rec_price = prev_price_cached if prev_price_cached is not None else prev_price_yf
+        current_price = curr_price_yf
+        
+        if rec_price is not None and current_price is not None:
+            ret_pct = ((current_price - rec_price) / rec_price) * 100
+        else:
+            ret_pct = None
+            
+        performance_list.append({
+            "symbol": sym,
+            "name": name,
+            "rec_date": prev_date,
+            "rec_price": f"${rec_price:.2f}" if rec_price is not None else "N/A",
+            "current_price": f"${current_price:.2f}" if current_price is not None else "N/A",
+            "return_pct": f"{ret_pct:+.2f}%" if ret_pct is not None else "N/A",
+            "return_val": ret_pct
+        })
+        
+    # 평균 수익률 계산
+    valid_returns = [p['return_val'] for p in performance_list if p['return_val'] is not None]
+    avg_return = sum(valid_returns) / len(valid_returns) if valid_returns else 0.0
+    
+    active_return = None
+    if spy_return is not None:
+        active_return = avg_return - spy_return
+        
+    return {
+        "status": "success",
+        "prev_date": prev_date,
+        "target_date": target_date,
+        "spy_prev": f"${spy_prev:.2f}" if spy_prev is not None else "N/A",
+        "spy_curr": f"${spy_curr:.2f}" if spy_curr is not None else "N/A",
+        "spy_return": f"{spy_return:+.2f}%" if spy_return is not None else "N/A",
+        "avg_return": f"{avg_return:+.2f}%",
+        "active_return": f"{active_return:+.2f}%" if active_return is not None else "N/A",
+        "data": performance_list
+    }
+
 if __name__ == "__main__":
-    print(get_top_10_recommendations("auto"))
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "performance":
+        print(get_recommendation_performance("auto"))
+    else:
+        print(get_top_10_recommendations("auto"))

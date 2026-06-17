@@ -1,0 +1,165 @@
+{
+  "name": "Weekly AI Stock Recommendation & Performance Report (v8 - Binary HTML)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "value": 1,
+              "weekday": [
+                1
+              ],
+              "time": "09:00"
+            }
+          ]
+        }
+      },
+      "id": "e30e7040-e2b2-4d1a-9694-825586616d6a",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        250,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:8001/api/recommend",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        },
+        "queryParametersUi": {
+          "parameter": [
+            {
+              "name": "date",
+              "value": "auto"
+            }
+          ]
+        }
+      },
+      "id": "5fa236d6-d08b-4a57-b08e-325b16104bc1",
+      "name": "Get Recommendations",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        470,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:8001/api/performance",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        },
+        "queryParametersUi": {
+          "parameter": [
+            {
+              "name": "date",
+              "value": "auto"
+            }
+          ]
+        }
+      },
+      "id": "31ee6be3-294b-4890-a337-b4dbad58ee9d",
+      "name": "Get Performance",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        690,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "let recData = [];\nlet perfData = {};\n\ntry {\n  recData = $node[\"Get Recommendations\"].json.data || [];\n} catch (e) {\n  recData = [];\n}\n\ntry {\n  perfData = $node[\"Get Performance\"].json || {};\n} catch (e) {\n  perfData = {};\n}\n\nconst today = new Date().toISOString().split('T')[0];\nlet docTitle = `주간 AI 주식 추천 및 성과 보고서 (${today})`;\n\nlet html = `<!DOCTYPE html>\\n<html>\\n<head>\\n<meta charset='utf-8'>\\n<style>\\n  body {\\n    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\\n    color: #334155;\\n    line-height: 1.6;\\n    margin: 20px;\\n  }\\n  h1 {\\n    color: #1e3a8a;\\n    font-size: 22px;\\n    border-bottom: 2px solid #3b82f6;\\n    padding-bottom: 8px;\\n    margin-bottom: 20px;\\n  }\\n  h2 {\\n    color: #0f172a;\\n    font-size: 16px;\\n    margin-top: 30px;\\n    margin-bottom: 10px;\\n    border-left: 4px solid #3b82f6;\\n    padding-left: 10px;\\n  }\\n  table {\\n    width: 100%;\\n    border-collapse: collapse;\\n    margin-bottom: 20px;\\n  }\\n  th {\\n    background-color: #1e293b;\\n    color: #ffffff;\\n    font-weight: bold;\\n    text-align: left;\\n    padding: 10px;\\n    font-size: 12px;\\n  }\\n  td {\\n    padding: 10px;\\n    border-bottom: 1px solid #e2e8f0;\\n    font-size: 12px;\\n  }\\n  .center {\\n    text-align: center;\\n  }\\n  .bold {\\n    font-weight: bold;\\n  }\\n  .green {\\n    color: #16a34a;\\n    font-weight: bold;\\n  }\\n  .red {\\n    color: #dc2626;\\n    font-weight: bold;\\n  }\\n  .summary-box {\\n    background-color: #f8fafc;\\n    border: 1px solid #e2e8f0;\\n    padding: 15px;\\n    border-radius: 6px;\\n    margin-bottom: 20px;\\n  }\\n  .summary-box ul {\\n    margin: 0;\\n    padding-left: 20px;\\n  }\\n  .summary-box li {\\n    margin-bottom: 8px;\\n    font-size: 13px;\\n  }\\n</style>\\n</head>\\n<body>\\n\\n<h1>주간 AI 주식 추천 및 성과 보고서 (${today})</h1>\\n\\n<h2>이번 주 AI 추천 Top 10 종목</h2>\\n<p style='font-size: 12px; color: #64748b; margin-bottom: 10px;'>추천 기준일: ${perfData.target_date || today}</p>\\n\\n<table>\\n  <thead>\\n    <tr>\\n      <th style='width: 8%;' class='center'>순위</th>\\n      <th style='width: 10%;' class='center'>티커</th>\\n      <th style='width: 12%;'>현재가</th>\\n      <th style='width: 12%;'>주간 변동률</th>\\n      <th style='width: 12%;' class='center'>AI 점수</th>\\n      <th>주요 추천 이유</th>\\n    </tr>\\n  </thead>\\n  <tbody>\\n`;\n\nconst top10 = recData.slice(0, 10);\ntop10.forEach(item => {\n  const changeClass = item.change && item.change.startsWith('+') ? 'green' : (item.change && item.change.startsWith('-') ? 'red' : '');\n  html += `    <tr>\\n      <td class='center bold'>${item.rank}</td>\\n      <td class='center bold'>${item.symbol}</td>\\n      <td>${item.price}</td>\\n      <td class='${changeClass}'>${item.change}</td>\\n      <td class='center'>${item.prob}</td>\\n      <td>${item.reason_text}</td>\\n    </tr>\\n`;\n});\n\nhtml += `  </tbody>\\n</table>\\n\\n<h2>지난 주 추천 종목 성과 평가 보고서</h2>\\n<p style='font-size: 12px; color: #64748b; margin-bottom: 15px;'>이전 추천 기준일: ${perfData.prev_date || 'N/A'} | 평가 기준일: ${perfData.target_date || 'N/A'}</p>\\n`;\n\nif (perfData.status === 'success') {\n  const avgClass = perfData.avg_return && perfData.avg_return.startsWith('+') ? 'green' : (perfData.avg_return && perfData.avg_return.startsWith('-') ? 'red' : '');\n  const spyClass = perfData.spy_return && perfData.spy_return.startsWith('+') ? 'green' : (perfData.spy_return && perfData.spy_return.startsWith('-') ? 'red' : '');\n  const activeClass = perfData.active_return && perfData.active_return.startsWith('+') ? 'green' : (perfData.active_return && perfData.active_return.startsWith('-') ? 'red' : '');\n\n  html += `\\n<div class='summary-box'>\\n  <p class='bold' style='margin-top: 0; margin-bottom: 10px; font-size: 14px; color: #0f172a;'>■ 성과 요약</p>\\n  <ul>\\n    <li>AI 추천주 평균 수익률: <span class='${avgClass}'>${perfData.avg_return}</span></li>\\n    <li>S&P 500 (SPY) 수익률: <span class='${spyClass}'>${perfData.spy_return}</span></li>\\n    <li>벤치마크 대비 초과 수익률: <span class='${activeClass}'>${perfData.active_return}</span></li>\\n  </ul>\\n</div>\\n\\n<p class='bold' style='margin-bottom: 10px; font-size: 14px; color: #0f172a;'>■ 종목별 상세 수익률</p>\\n<table>\\n  <thead>\\n    <tr>\\n      <th style='width: 25%;' class='center'>티커</th>\\n      <th style='width: 25%;'>추천가</th>\\n      <th style='width: 25%;'>현재가</th>\\n      <th style='width: 25%;'>수익률</th>\\n    </tr>\\n  </thead>\\n  <tbody>\\n`;\n\n  perfData.data.forEach(item => {\n    const returnClass = item.return_pct && item.return_pct.startsWith('+') ? 'green' : (item.return_pct && item.return_pct.startsWith('-') ? 'red' : '');\n    html += `    <tr>\\n      <td class='center bold'>${item.symbol}</td>\\n      <td>${item.rec_price}</td>\\n      <td>${item.current_price}</td>\\n      <td class='${returnClass}'>${item.return_pct}</td>\\n    </tr>\\n`;\n  });\n\n  html += `  </tbody>\\n</table>\\n`;\n} else {\n  html += `\\n<div class='summary-box' style='color: #dc2626;'>\\n  이전 추천 데이터를 찾을 수 없어 이번 주 수익률 보고서를 생성하지 못했습니다: ${perfData.message || '캐시 없음'}\\n</div>\\n`;\n}\n\nhtml += `\\n</body>\\n</html>\\n`;\n\nconst binaryData = Buffer.from(html, 'utf-8');\n\nreturn [\n  {\n    \"json\": {\n      \"title\": docTitle\n    },\n    \"binary\": {\n      \"data\": {\n        \"data\": binaryData.toString('base64'),\n        \"mimeType\": \"text/html\",\n        \"fileName\": `${docTitle}.html`\n      }\n    }\n  }\n];"
+      },
+      "id": "e8e21903-88ee-449e-b834-c24cc26bb0f2",
+      "name": "Format Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        910,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "binaryData": true,
+        "binaryPropertyName": "data",
+        "options": {
+          "convert": true
+        }
+      },
+      "id": "cf147285-d6e3-479c-9c98-a620e21a4fcf",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1130,
+        240
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Recommendations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Recommendations": {
+      "main": [
+        [
+          {
+            "node": "Get Performance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Performance": {
+      "main": [
+        [
+          {
+            "node": "Format Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Report": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

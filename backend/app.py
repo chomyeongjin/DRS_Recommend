@@ -2,7 +2,7 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-from predict_service import get_top_10_recommendations
+from predict_service import get_top_10_recommendations, get_recommendation_performance
 import uvicorn
 import os
 from fastapi.staticfiles import StaticFiles
@@ -23,6 +23,16 @@ def recommend(date: str = Query("auto", description="Date mode: 'auto' (last fri
     try:
         results = get_top_10_recommendations(mode=date)
         return {"status": "success", "data": results}
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/performance")
+def performance(date: str = Query("auto", description="Date mode: 'auto' (last friday) or 'today'")):
+    try:
+        results = get_recommendation_performance(mode=date)
+        return results
     except Exception as e:
         import traceback
         traceback.print_exc()

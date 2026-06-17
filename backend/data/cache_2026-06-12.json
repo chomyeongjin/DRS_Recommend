@@ -1,0 +1,3902 @@
+[
+    {
+        "rank": 1,
+        "id": "AMKR",
+        "name": "AMKR Corp",
+        "symbol": "AMKR",
+        "price": "$82.78",
+        "change": "+27.45%",
+        "prob": "46.2%",
+        "reason_text": "최근 5일간 수익률이 전체 상위 0.0%를 기록하며 주도주 패턴을 보입니다. 52주 신고가 돌파까지 불과 0.6% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#단기급등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 2,
+        "id": "ALAB",
+        "name": "ALAB Corp",
+        "symbol": "ALAB",
+        "price": "$367.15",
+        "change": "+15.80%",
+        "prob": "40.6%",
+        "reason_text": "최근 5일간 수익률이 전체 상위 2.4%를 기록하며 주도주 패턴을 보입니다.",
+        "reason_tags": [
+            "#단기급등"
+        ]
+    },
+    {
+        "rank": 3,
+        "id": "CRCL",
+        "name": "CRCL Corp",
+        "symbol": "CRCL",
+        "price": "$77.84",
+        "change": "-3.04%",
+        "prob": "40.5%",
+        "reason_text": "RSI(상대강도지수)가 24.3로 과매도 구간(하위 1.0%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 4,
+        "id": "APP",
+        "name": "APP Corp",
+        "symbol": "APP",
+        "price": "$496.77",
+        "change": "-10.85%",
+        "prob": "36.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 5,
+        "id": "ARM",
+        "name": "ARM Corp",
+        "symbol": "ARM",
+        "price": "$380.81",
+        "change": "+11.05%",
+        "prob": "35.9%",
+        "reason_text": "최근 5일간 수익률이 전체 상위 4.4%를 기록하며 주도주 패턴을 보입니다.",
+        "reason_tags": [
+            "#단기급등"
+        ]
+    },
+    {
+        "rank": 6,
+        "id": "AAON",
+        "name": "AAON Corp",
+        "symbol": "AAON",
+        "price": "$127.19",
+        "change": "-4.09%",
+        "prob": "34.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 7,
+        "id": "AUR",
+        "name": "AUR Corp",
+        "symbol": "AUR",
+        "price": "$6.13",
+        "change": "-2.85%",
+        "prob": "32.6%",
+        "reason_text": "RSI(상대강도지수)가 34.7로 과매도 구간(하위 6.7%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 8,
+        "id": "AKAM",
+        "name": "AKAM Corp",
+        "symbol": "AKAM",
+        "price": "$133.50",
+        "change": "-10.59%",
+        "prob": "32.2%",
+        "reason_text": "RSI(상대강도지수)가 38.0로 과매도 구간(하위 11.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 9,
+        "id": "BE",
+        "name": "BE Corp",
+        "symbol": "BE",
+        "price": "$260.22",
+        "change": "-1.29%",
+        "prob": "31.7%",
+        "reason_text": "RSI(상대강도지수)가 37.8로 과매도 구간(하위 10.8%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 10,
+        "id": "AGX",
+        "name": "AGX Corp",
+        "symbol": "AGX",
+        "price": "$641.68",
+        "change": "-7.63%",
+        "prob": "30.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 11,
+        "id": "AMD",
+        "name": "AMD Corp",
+        "symbol": "AMD",
+        "price": "$511.57",
+        "change": "+9.69%",
+        "prob": "28.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 12,
+        "id": "APLD",
+        "name": "APLD Corp",
+        "symbol": "APLD",
+        "price": "$42.70",
+        "change": "+7.77%",
+        "prob": "27.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 13,
+        "id": "ASX",
+        "name": "ASX Corp",
+        "symbol": "ASX",
+        "price": "$38.12",
+        "change": "+12.02%",
+        "prob": "25.8%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 4.4% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 최근 5일간 수익률이 전체 상위 3.4%를 기록하며 주도주 패턴을 보입니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#단기급등"
+        ]
+    },
+    {
+        "rank": 14,
+        "id": "CG",
+        "name": "CG Corp",
+        "symbol": "CG",
+        "price": "$45.75",
+        "change": "+5.22%",
+        "prob": "24.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 15,
+        "id": "AG",
+        "name": "AG Corp",
+        "symbol": "AG",
+        "price": "$17.65",
+        "change": "+3.88%",
+        "prob": "23.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 16,
+        "id": "AAOI",
+        "name": "AAOI Corp",
+        "symbol": "AAOI",
+        "price": "$169.05",
+        "change": "-4.49%",
+        "prob": "22.8%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 9.8% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 17,
+        "id": "ASML",
+        "name": "ASML Corp",
+        "symbol": "ASML",
+        "price": "$1863.55",
+        "change": "+13.51%",
+        "prob": "22.5%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 6.7% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 최근 5일간 수익률이 전체 상위 3.0%를 기록하며 주도주 패턴을 보입니다. 52주 신고가 돌파까지 불과 2.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#단기급등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 18,
+        "id": "ALB",
+        "name": "ALB Corp",
+        "symbol": "ALB",
+        "price": "$170.42",
+        "change": "+9.92%",
+        "prob": "21.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 19,
+        "id": "CM",
+        "name": "CM Corp",
+        "symbol": "CM",
+        "price": "$113.46",
+        "change": "+4.24%",
+        "prob": "20.6%",
+        "reason_text": "52주 신고가 돌파까지 불과 3.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 20,
+        "id": "DDOG",
+        "name": "DDOG Corp",
+        "symbol": "DDOG",
+        "price": "$229.90",
+        "change": "-1.80%",
+        "prob": "20.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 21,
+        "id": "CRDO",
+        "name": "CRDO Corp",
+        "symbol": "CRDO",
+        "price": "$250.81",
+        "change": "+21.23%",
+        "prob": "19.7%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 4.0% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 최근 5일간 수익률이 전체 상위 0.7%를 기록하며 주도주 패턴을 보입니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#단기급등"
+        ]
+    },
+    {
+        "rank": 22,
+        "id": "COIN",
+        "name": "COIN Corp",
+        "symbol": "COIN",
+        "price": "$159.78",
+        "change": "+4.84%",
+        "prob": "19.7%",
+        "reason_text": "RSI(상대강도지수)가 36.0로 과매도 구간(하위 8.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 23,
+        "id": "CLS",
+        "name": "CLS Corp",
+        "symbol": "CLS",
+        "price": "$393.12",
+        "change": "+5.76%",
+        "prob": "19.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 24,
+        "id": "BMNR",
+        "name": "BMNR Corp",
+        "symbol": "BMNR",
+        "price": "$16.11",
+        "change": "+1.32%",
+        "prob": "19.4%",
+        "reason_text": "RSI(상대강도지수)가 36.1로 과매도 구간(하위 8.8%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 25,
+        "id": "CSCO",
+        "name": "CSCO Corp",
+        "symbol": "CSCO",
+        "price": "$121.10",
+        "change": "-0.44%",
+        "prob": "19.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 26,
+        "id": "CASY",
+        "name": "CASY Corp",
+        "symbol": "CASY",
+        "price": "$895.14",
+        "change": "+17.49%",
+        "prob": "19.1%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 6.1% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 최근 5일간 수익률이 전체 상위 1.3%를 기록하며 주도주 패턴을 보입니다. 52주 신고가 돌파까지 불과 3.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#단기급등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 27,
+        "id": "CRWV",
+        "name": "CRWV Corp",
+        "symbol": "CRWV",
+        "price": "$100.55",
+        "change": "+0.16%",
+        "prob": "18.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 28,
+        "id": "AMAT",
+        "name": "AMAT Corp",
+        "symbol": "AMAT",
+        "price": "$567.25",
+        "change": "+25.22%",
+        "prob": "18.9%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 5.7% 수준으로 폭발하며 강력한 매수세가 확인됩니다. RSI 지표가 77.0를 기록하며 전체 상위 2.4%의 강한 추세 모멘텀을 형성하고 있습니다. 최근 5일간 수익률이 전체 상위 0.3%를 기록하며 주도주 패턴을 보입니다. 52주 신고가 돌파까지 불과 0.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#강한모멘텀",
+            "#단기급등"
+        ]
+    },
+    {
+        "rank": 29,
+        "id": "CHTR",
+        "name": "CHTR Corp",
+        "symbol": "CHTR",
+        "price": "$145.82",
+        "change": "+10.37%",
+        "prob": "18.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 30,
+        "id": "ADSK",
+        "name": "ADSK Corp",
+        "symbol": "ADSK",
+        "price": "$198.43",
+        "change": "-13.71%",
+        "prob": "18.3%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 8.4% 수준으로 폭발하며 강력한 매수세가 확인됩니다. RSI(상대강도지수)가 26.9로 과매도 구간(하위 2.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 31,
+        "id": "APH",
+        "name": "APH Corp",
+        "symbol": "APH",
+        "price": "$153.80",
+        "change": "+10.80%",
+        "prob": "18.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 32,
+        "id": "AEIS",
+        "name": "AEIS Corp",
+        "symbol": "AEIS",
+        "price": "$354.37",
+        "change": "+20.20%",
+        "prob": "17.8%",
+        "reason_text": "최근 5일간 수익률이 전체 상위 1.0%를 기록하며 주도주 패턴을 보입니다.",
+        "reason_tags": [
+            "#단기급등"
+        ]
+    },
+    {
+        "rank": 33,
+        "id": "CIEN",
+        "name": "CIEN Corp",
+        "symbol": "CIEN",
+        "price": "$445.98",
+        "change": "-8.65%",
+        "prob": "17.3%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 2.4% 수준으로 폭발하며 강력한 매수세가 확인됩니다. RSI(상대강도지수)가 29.3로 과매도 구간(하위 3.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 34,
+        "id": "AU",
+        "name": "AU Corp",
+        "symbol": "AU",
+        "price": "$86.30",
+        "change": "+2.59%",
+        "prob": "17.1%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 5.4% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 35,
+        "id": "BX",
+        "name": "BX Corp",
+        "symbol": "BX",
+        "price": "$122.79",
+        "change": "+6.45%",
+        "prob": "17.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 36,
+        "id": "CDNS",
+        "name": "CDNS Corp",
+        "symbol": "CDNS",
+        "price": "$384.96",
+        "change": "+2.33%",
+        "prob": "16.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 37,
+        "id": "COHR",
+        "name": "COHR Corp",
+        "symbol": "COHR",
+        "price": "$385.03",
+        "change": "+2.13%",
+        "prob": "16.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 38,
+        "id": "DELL",
+        "name": "DELL Corp",
+        "symbol": "DELL",
+        "price": "$395.57",
+        "change": "+0.30%",
+        "prob": "16.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 39,
+        "id": "CMG",
+        "name": "CMG Corp",
+        "symbol": "CMG",
+        "price": "$32.23",
+        "change": "+9.85%",
+        "prob": "16.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 40,
+        "id": "DAR",
+        "name": "DAR Corp",
+        "symbol": "DAR",
+        "price": "$56.99",
+        "change": "-4.14%",
+        "prob": "15.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 41,
+        "id": "DKNG",
+        "name": "DKNG Corp",
+        "symbol": "DKNG",
+        "price": "$29.00",
+        "change": "+16.33%",
+        "prob": "15.5%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 5.1% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 최근 5일간 수익률이 전체 상위 1.7%를 기록하며 주도주 패턴을 보입니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#단기급등"
+        ]
+    },
+    {
+        "rank": 42,
+        "id": "ACM",
+        "name": "ACM Corp",
+        "symbol": "ACM",
+        "price": "$70.12",
+        "change": "-1.43%",
+        "prob": "15.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 43,
+        "id": "CHWY",
+        "name": "CHWY Corp",
+        "symbol": "CHWY",
+        "price": "$19.31",
+        "change": "-6.44%",
+        "prob": "15.2%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 2.7% 수준으로 폭발하며 강력한 매수세가 확인됩니다. RSI(상대강도지수)가 39.5로 과매도 구간(하위 13.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 44,
+        "id": "AA",
+        "name": "AA Corp",
+        "symbol": "AA",
+        "price": "$68.77",
+        "change": "-4.34%",
+        "prob": "15.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 45,
+        "id": "CPNG",
+        "name": "CPNG Corp",
+        "symbol": "CPNG",
+        "price": "$16.82",
+        "change": "+11.02%",
+        "prob": "14.6%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 0.0% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 최근 5일간 수익률이 전체 상위 4.7%를 기록하며 주도주 패턴을 보입니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#단기급등"
+        ]
+    },
+    {
+        "rank": 46,
+        "id": "BHP",
+        "name": "BHP Corp",
+        "symbol": "BHP",
+        "price": "$90.82",
+        "change": "+9.79%",
+        "prob": "14.5%",
+        "reason_text": "52주 신고가 돌파까지 불과 3.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 47,
+        "id": "BBY",
+        "name": "BBY Corp",
+        "symbol": "BBY",
+        "price": "$78.53",
+        "change": "+9.77%",
+        "prob": "14.5%",
+        "reason_text": "RSI 지표가 77.4를 기록하며 전체 상위 1.7%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 5.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 48,
+        "id": "AXON",
+        "name": "AXON Corp",
+        "symbol": "AXON",
+        "price": "$441.73",
+        "change": "-9.13%",
+        "prob": "14.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 49,
+        "id": "BWA",
+        "name": "BWA Corp",
+        "symbol": "BWA",
+        "price": "$74.51",
+        "change": "+2.59%",
+        "prob": "14.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 50,
+        "id": "CTSH",
+        "name": "CTSH Corp",
+        "symbol": "CTSH",
+        "price": "$52.17",
+        "change": "-1.95%",
+        "prob": "14.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 51,
+        "id": "AFRM",
+        "name": "AFRM Corp",
+        "symbol": "AFRM",
+        "price": "$66.17",
+        "change": "+4.02%",
+        "prob": "14.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 52,
+        "id": "CRM",
+        "name": "CRM Corp",
+        "symbol": "CRM",
+        "price": "$165.89",
+        "change": "-10.42%",
+        "prob": "14.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 53,
+        "id": "ADBE",
+        "name": "ADBE Corp",
+        "symbol": "ADBE",
+        "price": "$204.02",
+        "change": "-18.86%",
+        "prob": "14.1%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 0.3% 수준으로 폭발하며 강력한 매수세가 확인됩니다. RSI(상대강도지수)가 32.5로 과매도 구간(하위 4.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 54,
+        "id": "AVGO",
+        "name": "AVGO Corp",
+        "symbol": "AVGO",
+        "price": "$382.07",
+        "change": "-0.95%",
+        "prob": "14.0%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 8.1% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 55,
+        "id": "CSGP",
+        "name": "CSGP Corp",
+        "symbol": "CSGP",
+        "price": "$32.84",
+        "change": "-3.10%",
+        "prob": "13.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 56,
+        "id": "BRKRP",
+        "name": "BRKRP Corp",
+        "symbol": "BRKRP",
+        "price": "$401.31",
+        "change": "-4.73%",
+        "prob": "13.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 57,
+        "id": "CCL",
+        "name": "CCL Corp",
+        "symbol": "CCL",
+        "price": "$29.18",
+        "change": "+6.46%",
+        "prob": "13.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 58,
+        "id": "DPZ",
+        "name": "DPZ Corp",
+        "symbol": "DPZ",
+        "price": "$321.89",
+        "change": "+3.15%",
+        "prob": "13.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 59,
+        "id": "BAM",
+        "name": "BAM Corp",
+        "symbol": "BAM",
+        "price": "$47.13",
+        "change": "+2.06%",
+        "prob": "13.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 60,
+        "id": "BTSGU",
+        "name": "BTSGU Corp",
+        "symbol": "BTSGU",
+        "price": "$206.38",
+        "change": "+8.56%",
+        "prob": "13.3%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 61,
+        "id": "CDE",
+        "name": "CDE Corp",
+        "symbol": "CDE",
+        "price": "$17.20",
+        "change": "+5.07%",
+        "prob": "13.3%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 3.4% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 62,
+        "id": "BR",
+        "name": "BR Corp",
+        "symbol": "BR",
+        "price": "$144.87",
+        "change": "-3.63%",
+        "prob": "13.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 63,
+        "id": "DOCN",
+        "name": "DOCN Corp",
+        "symbol": "DOCN",
+        "price": "$170.44",
+        "change": "+0.34%",
+        "prob": "13.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 64,
+        "id": "CDW",
+        "name": "CDW Corp",
+        "symbol": "CDW",
+        "price": "$132.19",
+        "change": "-0.64%",
+        "prob": "12.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 65,
+        "id": "EC",
+        "name": "EC Corp",
+        "symbol": "EC",
+        "price": "$16.58",
+        "change": "+9.44%",
+        "prob": "12.6%",
+        "reason_text": "RSI 지표가 74.1를 기록하며 전체 상위 3.4%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 1.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 66,
+        "id": "APTV",
+        "name": "APTV Corp",
+        "symbol": "APTV",
+        "price": "$68.05",
+        "change": "-0.80%",
+        "prob": "12.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 67,
+        "id": "EFX",
+        "name": "EFX Corp",
+        "symbol": "EFX",
+        "price": "$163.71",
+        "change": "-4.89%",
+        "prob": "12.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 68,
+        "id": "CVNA",
+        "name": "CVNA Corp",
+        "symbol": "CVNA",
+        "price": "$64.10",
+        "change": "-3.62%",
+        "prob": "12.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 69,
+        "id": "BAP",
+        "name": "BAP Corp",
+        "symbol": "BAP",
+        "price": "$369.55",
+        "change": "+14.59%",
+        "prob": "12.0%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 1.3% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 최근 5일간 수익률이 전체 상위 2.7%를 기록하며 주도주 패턴을 보입니다. 52주 신고가 돌파까지 불과 1.9% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#단기급등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 70,
+        "id": "ACN",
+        "name": "ACN Corp",
+        "symbol": "ACN",
+        "price": "$170.28",
+        "change": "-4.47%",
+        "prob": "11.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 71,
+        "id": "ANET",
+        "name": "ANET Corp",
+        "symbol": "ANET",
+        "price": "$163.24",
+        "change": "+5.81%",
+        "prob": "11.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 72,
+        "id": "DB",
+        "name": "DB Corp",
+        "symbol": "DB",
+        "price": "$33.31",
+        "change": "+5.71%",
+        "prob": "11.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 73,
+        "id": "DG",
+        "name": "DG Corp",
+        "symbol": "DG",
+        "price": "$114.80",
+        "change": "+10.70%",
+        "prob": "11.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 74,
+        "id": "EDU",
+        "name": "EDU Corp",
+        "symbol": "EDU",
+        "price": "$46.67",
+        "change": "+2.03%",
+        "prob": "11.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 75,
+        "id": "CNM",
+        "name": "CNM Corp",
+        "symbol": "CNM",
+        "price": "$48.33",
+        "change": "-7.00%",
+        "prob": "11.8%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 7.4% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 76,
+        "id": "AGI",
+        "name": "AGI Corp",
+        "symbol": "AGI",
+        "price": "$35.20",
+        "change": "-0.78%",
+        "prob": "11.7%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 3.7% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 77,
+        "id": "DASH",
+        "name": "DASH Corp",
+        "symbol": "DASH",
+        "price": "$150.58",
+        "change": "-3.97%",
+        "prob": "11.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 78,
+        "id": "ARES",
+        "name": "ARES Corp",
+        "symbol": "ARES",
+        "price": "$134.90",
+        "change": "+7.36%",
+        "prob": "11.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 79,
+        "id": "BSY",
+        "name": "BSY Corp",
+        "symbol": "BSY",
+        "price": "$30.67",
+        "change": "-6.86%",
+        "prob": "11.6%",
+        "reason_text": "RSI(상대강도지수)가 38.1로 과매도 구간(하위 11.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 80,
+        "id": "BTSG",
+        "name": "BTSG Corp",
+        "symbol": "BTSG",
+        "price": "$63.23",
+        "change": "+10.16%",
+        "prob": "11.6%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 7.7% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 52주 신고가 돌파까지 불과 1.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 81,
+        "id": "CCJ",
+        "name": "CCJ Corp",
+        "symbol": "CCJ",
+        "price": "$100.96",
+        "change": "-2.40%",
+        "prob": "11.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 82,
+        "id": "CBOE",
+        "name": "CBOE Corp",
+        "symbol": "CBOE",
+        "price": "$294.91",
+        "change": "+4.61%",
+        "prob": "11.3%",
+        "reason_text": "RSI(상대강도지수)가 25.1로 과매도 구간(하위 1.3%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 83,
+        "id": "DT",
+        "name": "DT Corp",
+        "symbol": "DT",
+        "price": "$40.75",
+        "change": "-3.41%",
+        "prob": "11.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 84,
+        "id": "CNC",
+        "name": "CNC Corp",
+        "symbol": "CNC",
+        "price": "$65.19",
+        "change": "+4.59%",
+        "prob": "11.2%",
+        "reason_text": "52주 신고가 돌파까지 불과 2.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 85,
+        "id": "ADP",
+        "name": "ADP Corp",
+        "symbol": "ADP",
+        "price": "$226.21",
+        "change": "-1.73%",
+        "prob": "11.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 86,
+        "id": "AAPL",
+        "name": "AAPL Corp",
+        "symbol": "AAPL",
+        "price": "$291.13",
+        "change": "-5.27%",
+        "prob": "11.1%",
+        "reason_text": "RSI(상대강도지수)가 34.2로 과매도 구간(하위 5.7%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 87,
+        "id": "ADI",
+        "name": "ADI Corp",
+        "symbol": "ADI",
+        "price": "$417.79",
+        "change": "+4.09%",
+        "prob": "11.0%",
+        "reason_text": "52주 신고가 돌파까지 불과 5.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 88,
+        "id": "ABT",
+        "name": "ABT Corp",
+        "symbol": "ABT",
+        "price": "$88.18",
+        "change": "-3.17%",
+        "prob": "11.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 89,
+        "id": "DVA",
+        "name": "DVA Corp",
+        "symbol": "DVA",
+        "price": "$208.66",
+        "change": "+8.59%",
+        "prob": "10.9%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 90,
+        "id": "DXCM",
+        "name": "DXCM Corp",
+        "symbol": "DXCM",
+        "price": "$75.37",
+        "change": "+3.44%",
+        "prob": "10.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 91,
+        "id": "AMH",
+        "name": "AMH Corp",
+        "symbol": "AMH",
+        "price": "$32.96",
+        "change": "+0.06%",
+        "prob": "10.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 92,
+        "id": "ALNY",
+        "name": "ALNY Corp",
+        "symbol": "ALNY",
+        "price": "$282.85",
+        "change": "-6.67%",
+        "prob": "10.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 93,
+        "id": "CHKP",
+        "name": "CHKP Corp",
+        "symbol": "CHKP",
+        "price": "$124.06",
+        "change": "-8.66%",
+        "prob": "10.4%",
+        "reason_text": "RSI(상대강도지수)가 36.6로 과매도 구간(하위 9.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 94,
+        "id": "CRWD",
+        "name": "CRWD Corp",
+        "symbol": "CRWD",
+        "price": "$682.80",
+        "change": "+1.76%",
+        "prob": "10.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 95,
+        "id": "AXSM",
+        "name": "AXSM Corp",
+        "symbol": "AXSM",
+        "price": "$255.17",
+        "change": "+9.84%",
+        "prob": "10.2%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 96,
+        "id": "COO",
+        "name": "COO Corp",
+        "symbol": "COO",
+        "price": "$67.88",
+        "change": "+0.80%",
+        "prob": "10.2%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 7.1% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 97,
+        "id": "DOW",
+        "name": "DOW Corp",
+        "symbol": "DOW",
+        "price": "$33.85",
+        "change": "-0.35%",
+        "prob": "10.2%",
+        "reason_text": "RSI(상대강도지수)가 39.5로 과매도 구간(하위 13.5%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 98,
+        "id": "ARWR",
+        "name": "ARWR Corp",
+        "symbol": "ARWR",
+        "price": "$74.52",
+        "change": "+1.96%",
+        "prob": "10.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 99,
+        "id": "APO",
+        "name": "APO Corp",
+        "symbol": "APO",
+        "price": "$133.88",
+        "change": "+4.57%",
+        "prob": "10.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 100,
+        "id": "AEM",
+        "name": "AEM Corp",
+        "symbol": "AEM",
+        "price": "$162.64",
+        "change": "-0.62%",
+        "prob": "10.1%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 6.4% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 101,
+        "id": "DCI",
+        "name": "DCI Corp",
+        "symbol": "DCI",
+        "price": "$86.08",
+        "change": "+3.29%",
+        "prob": "10.1%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 8.8% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 102,
+        "id": "ABVX",
+        "name": "ABVX Corp",
+        "symbol": "ABVX",
+        "price": "$96.55",
+        "change": "-4.90%",
+        "prob": "10.1%",
+        "reason_text": "RSI(상대강도지수)가 39.4로 과매도 구간(하위 12.8%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 103,
+        "id": "ATI",
+        "name": "ATI Corp",
+        "symbol": "ATI",
+        "price": "$198.48",
+        "change": "+11.84%",
+        "prob": "10.0%",
+        "reason_text": "RSI 지표가 83.5를 기록하며 전체 상위 0.3%의 강한 추세 모멘텀을 형성하고 있습니다. 최근 5일간 수익률이 전체 상위 3.7%를 기록하며 주도주 패턴을 보입니다. 52주 신고가 돌파까지 불과 2.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#단기급등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 104,
+        "id": "BMRN",
+        "name": "BMRN Corp",
+        "symbol": "BMRN",
+        "price": "$55.95",
+        "change": "-1.44%",
+        "prob": "10.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 105,
+        "id": "AJG",
+        "name": "AJG Corp",
+        "symbol": "AJG",
+        "price": "$218.69",
+        "change": "+1.18%",
+        "prob": "10.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 106,
+        "id": "ARGX",
+        "name": "ARGX Corp",
+        "symbol": "ARGX",
+        "price": "$893.52",
+        "change": "+0.25%",
+        "prob": "9.9%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 107,
+        "id": "CAT",
+        "name": "CAT Corp",
+        "symbol": "CAT",
+        "price": "$910.57",
+        "change": "+0.70%",
+        "prob": "9.7%",
+        "reason_text": "52주 신고가 돌파까지 불과 3.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 108,
+        "id": "BURL",
+        "name": "BURL Corp",
+        "symbol": "BURL",
+        "price": "$338.45",
+        "change": "+6.75%",
+        "prob": "9.7%",
+        "reason_text": "52주 신고가 돌파까지 불과 3.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 109,
+        "id": "BN",
+        "name": "BN Corp",
+        "symbol": "BN",
+        "price": "$45.14",
+        "change": "+1.37%",
+        "prob": "9.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 110,
+        "id": "CLX",
+        "name": "CLX Corp",
+        "symbol": "CLX",
+        "price": "$96.82",
+        "change": "+2.85%",
+        "prob": "9.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 111,
+        "id": "CVS",
+        "name": "CVS Corp",
+        "symbol": "CVS",
+        "price": "$101.96",
+        "change": "+6.29%",
+        "prob": "9.5%",
+        "reason_text": "RSI 지표가 71.0를 기록하며 전체 상위 4.0%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 0.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 112,
+        "id": "BLD",
+        "name": "BLD Corp",
+        "symbol": "BLD",
+        "price": "$411.08",
+        "change": "+2.30%",
+        "prob": "9.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 113,
+        "id": "CX",
+        "name": "CX Corp",
+        "symbol": "CX",
+        "price": "$12.98",
+        "change": "+4.09%",
+        "prob": "9.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 114,
+        "id": "DLTR",
+        "name": "DLTR Corp",
+        "symbol": "DLTR",
+        "price": "$114.00",
+        "change": "+4.78%",
+        "prob": "9.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 115,
+        "id": "BEPC",
+        "name": "BEPC Corp",
+        "symbol": "BEPC",
+        "price": "$36.49",
+        "change": "-5.76%",
+        "prob": "9.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 116,
+        "id": "BRO",
+        "name": "BRO Corp",
+        "symbol": "BRO",
+        "price": "$59.99",
+        "change": "+1.92%",
+        "prob": "9.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 117,
+        "id": "COKE",
+        "name": "COKE Corp",
+        "symbol": "COKE",
+        "price": "$187.89",
+        "change": "+4.44%",
+        "prob": "9.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 118,
+        "id": "CRBG",
+        "name": "CRBG Corp",
+        "symbol": "CRBG",
+        "price": "$28.74",
+        "change": "+7.00%",
+        "prob": "9.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 119,
+        "id": "AMRZ",
+        "name": "AMRZ Corp",
+        "symbol": "AMRZ",
+        "price": "$53.17",
+        "change": "-0.77%",
+        "prob": "9.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 120,
+        "id": "CHRW",
+        "name": "CHRW Corp",
+        "symbol": "CHRW",
+        "price": "$193.74",
+        "change": "+5.24%",
+        "prob": "9.0%",
+        "reason_text": "RSI 지표가 74.4를 기록하며 전체 상위 3.0%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 4.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 121,
+        "id": "ASTS",
+        "name": "ASTS Corp",
+        "symbol": "ASTS",
+        "price": "$82.41",
+        "change": "-11.96%",
+        "prob": "9.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 122,
+        "id": "BSX",
+        "name": "BSX Corp",
+        "symbol": "BSX",
+        "price": "$46.91",
+        "change": "-3.38%",
+        "prob": "9.0%",
+        "reason_text": "RSI(상대강도지수)가 11.3로 과매도 구간(하위 0.3%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 123,
+        "id": "A",
+        "name": "A Corp",
+        "symbol": "A",
+        "price": "$129.84",
+        "change": "-4.13%",
+        "prob": "9.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 124,
+        "id": "DY",
+        "name": "DY Corp",
+        "symbol": "DY",
+        "price": "$469.00",
+        "change": "+0.58%",
+        "prob": "8.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 125,
+        "id": "BABA",
+        "name": "BABA Corp",
+        "symbol": "BABA",
+        "price": "$112.82",
+        "change": "-5.95%",
+        "prob": "8.7%",
+        "reason_text": "RSI(상대강도지수)가 22.7로 과매도 구간(하위 0.7%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 126,
+        "id": "BIDU",
+        "name": "BIDU Corp",
+        "symbol": "BIDU",
+        "price": "$115.77",
+        "change": "-4.84%",
+        "prob": "8.7%",
+        "reason_text": "RSI(상대강도지수)가 36.9로 과매도 구간(하위 9.8%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 127,
+        "id": "ALC",
+        "name": "ALC Corp",
+        "symbol": "ALC",
+        "price": "$66.85",
+        "change": "+0.06%",
+        "prob": "8.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 128,
+        "id": "BEKE",
+        "name": "BEKE Corp",
+        "symbol": "BEKE",
+        "price": "$16.89",
+        "change": "+5.04%",
+        "prob": "8.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 129,
+        "id": "COF",
+        "name": "COF Corp",
+        "symbol": "COF",
+        "price": "$184.73",
+        "change": "+2.25%",
+        "prob": "8.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 130,
+        "id": "AZO",
+        "name": "AZO Corp",
+        "symbol": "AZO",
+        "price": "$3116.30",
+        "change": "-0.00%",
+        "prob": "8.3%",
+        "reason_text": "RSI(상대강도지수)가 32.9로 과매도 구간(하위 4.7%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 131,
+        "id": "DHR",
+        "name": "DHR Corp",
+        "symbol": "DHR",
+        "price": "$180.10",
+        "change": "-2.28%",
+        "prob": "8.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 132,
+        "id": "BEP",
+        "name": "BEP Corp",
+        "symbol": "BEP",
+        "price": "$34.32",
+        "change": "-6.02%",
+        "prob": "8.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 133,
+        "id": "CMI",
+        "name": "CMI Corp",
+        "symbol": "CMI",
+        "price": "$659.58",
+        "change": "+1.28%",
+        "prob": "8.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 134,
+        "id": "DRI",
+        "name": "DRI Corp",
+        "symbol": "DRI",
+        "price": "$211.47",
+        "change": "+6.74%",
+        "prob": "8.0%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 135,
+        "id": "DEO",
+        "name": "DEO Corp",
+        "symbol": "DEO",
+        "price": "$81.79",
+        "change": "+1.69%",
+        "prob": "7.9%",
+        "reason_text": "RSI(상대강도지수)가 35.8로 과매도 구간(하위 7.7%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 136,
+        "id": "CPRT",
+        "name": "CPRT Corp",
+        "symbol": "CPRT",
+        "price": "$30.75",
+        "change": "-0.68%",
+        "prob": "7.9%",
+        "reason_text": "RSI(상대강도지수)가 25.2로 과매도 구간(하위 1.7%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 137,
+        "id": "CGNX",
+        "name": "CGNX Corp",
+        "symbol": "CGNX",
+        "price": "$63.61",
+        "change": "+4.59%",
+        "prob": "7.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 138,
+        "id": "AXIA",
+        "name": "AXIA Corp",
+        "symbol": "AXIA",
+        "price": "$10.28",
+        "change": "+4.90%",
+        "prob": "7.6%",
+        "reason_text": "RSI(상대강도지수)가 38.6로 과매도 구간(하위 12.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 139,
+        "id": "EBAY",
+        "name": "EBAY Corp",
+        "symbol": "EBAY",
+        "price": "$108.61",
+        "change": "-0.68%",
+        "prob": "7.6%",
+        "reason_text": "RSI(상대강도지수)가 33.3로 과매도 구간(하위 5.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 140,
+        "id": "ALGN",
+        "name": "ALGN Corp",
+        "symbol": "ALGN",
+        "price": "$174.84",
+        "change": "+4.23%",
+        "prob": "7.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 141,
+        "id": "BNTX",
+        "name": "BNTX Corp",
+        "symbol": "BNTX",
+        "price": "$90.54",
+        "change": "+2.79%",
+        "prob": "7.5%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 3.0% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 142,
+        "id": "DAL",
+        "name": "DAL Corp",
+        "symbol": "DAL",
+        "price": "$83.06",
+        "change": "+4.58%",
+        "prob": "7.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.9% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 143,
+        "id": "ADM",
+        "name": "ADM Corp",
+        "symbol": "ADM",
+        "price": "$80.24",
+        "change": "-0.84%",
+        "prob": "7.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 144,
+        "id": "DHI",
+        "name": "DHI Corp",
+        "symbol": "DHI",
+        "price": "$154.09",
+        "change": "+5.83%",
+        "prob": "7.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 145,
+        "id": "CR",
+        "name": "CR Corp",
+        "symbol": "CR",
+        "price": "$206.57",
+        "change": "+9.38%",
+        "prob": "7.2%",
+        "reason_text": "RSI 지표가 79.4를 기록하며 전체 상위 1.0%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 3.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 146,
+        "id": "COR",
+        "name": "COR Corp",
+        "symbol": "COR",
+        "price": "$281.67",
+        "change": "+2.41%",
+        "prob": "7.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 147,
+        "id": "CNH",
+        "name": "CNH Corp",
+        "symbol": "CNH",
+        "price": "$10.60",
+        "change": "-1.40%",
+        "prob": "7.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 148,
+        "id": "CCK",
+        "name": "CCK Corp",
+        "symbol": "CCK",
+        "price": "$98.95",
+        "change": "+5.96%",
+        "prob": "7.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 149,
+        "id": "D",
+        "name": "D Corp",
+        "symbol": "D",
+        "price": "$67.91",
+        "change": "+1.51%",
+        "prob": "7.1%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.6% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 150,
+        "id": "ARW",
+        "name": "ARW Corp",
+        "symbol": "ARW",
+        "price": "$226.78",
+        "change": "+3.51%",
+        "prob": "7.1%",
+        "reason_text": "52주 신고가 돌파까지 불과 2.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 151,
+        "id": "CCI",
+        "name": "CCI Corp",
+        "symbol": "CCI",
+        "price": "$91.10",
+        "change": "-2.47%",
+        "prob": "7.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 152,
+        "id": "AMT",
+        "name": "AMT Corp",
+        "symbol": "AMT",
+        "price": "$187.18",
+        "change": "-2.65%",
+        "prob": "7.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 153,
+        "id": "BKNG",
+        "name": "BKNG Corp",
+        "symbol": "BKNG",
+        "price": "$164.94",
+        "change": "-0.54%",
+        "prob": "6.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 154,
+        "id": "CTAS",
+        "name": "CTAS Corp",
+        "symbol": "CTAS",
+        "price": "$176.28",
+        "change": "-1.98%",
+        "prob": "6.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 155,
+        "id": "AVB",
+        "name": "AVB Corp",
+        "symbol": "AVB",
+        "price": "$187.03",
+        "change": "-1.42%",
+        "prob": "6.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 156,
+        "id": "AS",
+        "name": "AS Corp",
+        "symbol": "AS",
+        "price": "$35.46",
+        "change": "+3.99%",
+        "prob": "6.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 157,
+        "id": "BCS",
+        "name": "BCS Corp",
+        "symbol": "BCS",
+        "price": "$25.47",
+        "change": "+4.94%",
+        "prob": "6.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 158,
+        "id": "AGNCZ",
+        "name": "AGNCZ Corp",
+        "symbol": "AGNCZ",
+        "price": "$25.41",
+        "change": "+0.08%",
+        "prob": "6.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 159,
+        "id": "BWXT",
+        "name": "BWXT Corp",
+        "symbol": "BWXT",
+        "price": "$193.45",
+        "change": "+4.03%",
+        "prob": "6.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 160,
+        "id": "BALL",
+        "name": "BALL Corp",
+        "symbol": "BALL",
+        "price": "$56.98",
+        "change": "+7.67%",
+        "prob": "6.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 161,
+        "id": "ALLE",
+        "name": "ALLE Corp",
+        "symbol": "ALLE",
+        "price": "$133.42",
+        "change": "+2.93%",
+        "prob": "6.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 162,
+        "id": "CARR",
+        "name": "CARR Corp",
+        "symbol": "CARR",
+        "price": "$69.91",
+        "change": "+4.09%",
+        "prob": "6.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 163,
+        "id": "APG",
+        "name": "APG Corp",
+        "symbol": "APG",
+        "price": "$42.34",
+        "change": "+0.86%",
+        "prob": "6.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 164,
+        "id": "CEG",
+        "name": "CEG Corp",
+        "symbol": "CEG",
+        "price": "$253.76",
+        "change": "-0.42%",
+        "prob": "6.4%",
+        "reason_text": "RSI(상대강도지수)가 29.2로 과매도 구간(하위 3.0%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 165,
+        "id": "AMZN",
+        "name": "AMZN Corp",
+        "symbol": "AMZN",
+        "price": "$238.55",
+        "change": "-3.04%",
+        "prob": "6.4%",
+        "reason_text": "RSI(상대강도지수)가 26.8로 과매도 구간(하위 2.0%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 166,
+        "id": "DECK",
+        "name": "DECK Corp",
+        "symbol": "DECK",
+        "price": "$113.83",
+        "change": "+5.27%",
+        "prob": "6.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 167,
+        "id": "CRH",
+        "name": "CRH Corp",
+        "symbol": "CRH",
+        "price": "$106.48",
+        "change": "+1.35%",
+        "prob": "6.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 168,
+        "id": "BUD",
+        "name": "BUD Corp",
+        "symbol": "BUD",
+        "price": "$82.91",
+        "change": "+5.62%",
+        "prob": "6.3%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 169,
+        "id": "BSBR",
+        "name": "BSBR Corp",
+        "symbol": "BSBR",
+        "price": "$5.42",
+        "change": "+3.44%",
+        "prob": "6.3%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 0.7% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 170,
+        "id": "CW",
+        "name": "CW Corp",
+        "symbol": "CW",
+        "price": "$757.74",
+        "change": "+3.39%",
+        "prob": "6.2%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 171,
+        "id": "B",
+        "name": "B Corp",
+        "symbol": "B",
+        "price": "$40.20",
+        "change": "+1.88%",
+        "prob": "6.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 172,
+        "id": "BNT",
+        "name": "BNT Corp",
+        "symbol": "BNT",
+        "price": "$45.04",
+        "change": "+1.53%",
+        "prob": "6.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 173,
+        "id": "BBVA",
+        "name": "BBVA Corp",
+        "symbol": "BBVA",
+        "price": "$23.34",
+        "change": "+5.04%",
+        "prob": "5.9%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 4.7% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 174,
+        "id": "AVY",
+        "name": "AVY Corp",
+        "symbol": "AVY",
+        "price": "$159.25",
+        "change": "+2.62%",
+        "prob": "5.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 175,
+        "id": "CSL",
+        "name": "CSL Corp",
+        "symbol": "CSL",
+        "price": "$343.77",
+        "change": "-0.64%",
+        "prob": "5.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 176,
+        "id": "CVE",
+        "name": "CVE Corp",
+        "symbol": "CVE",
+        "price": "$28.11",
+        "change": "+0.18%",
+        "prob": "5.8%",
+        "reason_text": "RSI(상대강도지수)가 40.0로 과매도 구간(하위 14.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 177,
+        "id": "CMCSA",
+        "name": "CMCSA Corp",
+        "symbol": "CMCSA",
+        "price": "$24.50",
+        "change": "+2.85%",
+        "prob": "5.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 178,
+        "id": "BCH",
+        "name": "BCH Corp",
+        "symbol": "BCH",
+        "price": "$40.18",
+        "change": "+10.14%",
+        "prob": "5.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 179,
+        "id": "CME",
+        "name": "CME Corp",
+        "symbol": "CME",
+        "price": "$269.53",
+        "change": "+5.26%",
+        "prob": "5.7%",
+        "reason_text": "RSI(상대강도지수)가 36.5로 과매도 구간(하위 9.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 180,
+        "id": "DOC",
+        "name": "DOC Corp",
+        "symbol": "DOC",
+        "price": "$20.59",
+        "change": "+4.55%",
+        "prob": "5.7%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.6% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 181,
+        "id": "CAH",
+        "name": "CAH Corp",
+        "symbol": "CAH",
+        "price": "$223.85",
+        "change": "+8.82%",
+        "prob": "5.7%",
+        "reason_text": "RSI 지표가 81.1를 기록하며 전체 상위 0.7%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 3.9% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 182,
+        "id": "APA",
+        "name": "APA Corp",
+        "symbol": "APA",
+        "price": "$37.02",
+        "change": "+1.23%",
+        "prob": "5.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 183,
+        "id": "CLH",
+        "name": "CLH Corp",
+        "symbol": "CLH",
+        "price": "$287.78",
+        "change": "+1.68%",
+        "prob": "5.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 184,
+        "id": "ALLY",
+        "name": "ALLY Corp",
+        "symbol": "ALLY",
+        "price": "$44.37",
+        "change": "+3.74%",
+        "prob": "5.6%",
+        "reason_text": "52주 신고가 돌파까지 불과 5.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 185,
+        "id": "DKS",
+        "name": "DKS Corp",
+        "symbol": "DKS",
+        "price": "$220.99",
+        "change": "+3.44%",
+        "prob": "5.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 186,
+        "id": "AXP",
+        "name": "AXP Corp",
+        "symbol": "AXP",
+        "price": "$325.44",
+        "change": "+4.76%",
+        "prob": "5.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 187,
+        "id": "AMCR",
+        "name": "AMCR Corp",
+        "symbol": "AMCR",
+        "price": "$40.60",
+        "change": "+6.48%",
+        "prob": "5.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 188,
+        "id": "CF",
+        "name": "CF Corp",
+        "symbol": "CF",
+        "price": "$109.48",
+        "change": "-3.53%",
+        "prob": "5.4%",
+        "reason_text": "RSI(상대강도지수)가 29.7로 과매도 구간(하위 3.7%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 189,
+        "id": "CCEP",
+        "name": "CCEP Corp",
+        "symbol": "CCEP",
+        "price": "$99.34",
+        "change": "+4.86%",
+        "prob": "5.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 190,
+        "id": "DINO",
+        "name": "DINO Corp",
+        "symbol": "DINO",
+        "price": "$71.26",
+        "change": "-0.18%",
+        "prob": "5.3%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.2% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 191,
+        "id": "BDX",
+        "name": "BDX Corp",
+        "symbol": "BDX",
+        "price": "$146.24",
+        "change": "-2.57%",
+        "prob": "5.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 192,
+        "id": "AR",
+        "name": "AR Corp",
+        "symbol": "AR",
+        "price": "$34.83",
+        "change": "-2.05%",
+        "prob": "5.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 193,
+        "id": "DIS",
+        "name": "DIS Corp",
+        "symbol": "DIS",
+        "price": "$100.04",
+        "change": "+0.33%",
+        "prob": "5.2%",
+        "reason_text": "RSI(상대강도지수)가 38.1로 과매도 구간(하위 11.8%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 194,
+        "id": "ALSN",
+        "name": "ALSN Corp",
+        "symbol": "ALSN",
+        "price": "$117.35",
+        "change": "+1.38%",
+        "prob": "5.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 195,
+        "id": "CNI",
+        "name": "CNI Corp",
+        "symbol": "CNI",
+        "price": "$118.98",
+        "change": "-0.62%",
+        "prob": "5.0%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 1.7% 수준으로 폭발하며 강력한 매수세가 확인됩니다. 52주 신고가 돌파까지 불과 2.3% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 196,
+        "id": "ASND",
+        "name": "ASND Corp",
+        "symbol": "ASND",
+        "price": "$218.06",
+        "change": "+3.62%",
+        "prob": "5.0%",
+        "reason_text": "RSI(상대강도지수)가 29.1로 과매도 구간(하위 2.7%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 197,
+        "id": "CL",
+        "name": "CL Corp",
+        "symbol": "CL",
+        "price": "$89.45",
+        "change": "+0.98%",
+        "prob": "5.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 198,
+        "id": "DD",
+        "name": "DD Corp",
+        "symbol": "DD",
+        "price": "$48.26",
+        "change": "+3.01%",
+        "prob": "5.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 199,
+        "id": "CRS",
+        "name": "CRS Corp",
+        "symbol": "CRS",
+        "price": "$561.49",
+        "change": "+16.11%",
+        "prob": "4.8%",
+        "reason_text": "RSI 지표가 92.7를 기록하며 전체 상위 0.0%의 강한 추세 모멘텀을 형성하고 있습니다. 최근 5일간 수익률이 전체 상위 2.0%를 기록하며 주도주 패턴을 보입니다. 52주 신고가 돌파까지 불과 2.3% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#단기급등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 200,
+        "id": "DGX",
+        "name": "DGX Corp",
+        "symbol": "DGX",
+        "price": "$203.06",
+        "change": "+1.38%",
+        "prob": "4.8%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 201,
+        "id": "CI",
+        "name": "CI Corp",
+        "symbol": "CI",
+        "price": "$298.00",
+        "change": "+2.94%",
+        "prob": "4.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 202,
+        "id": "BSAC",
+        "name": "BSAC Corp",
+        "symbol": "BSAC",
+        "price": "$32.51",
+        "change": "+8.29%",
+        "prob": "4.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 203,
+        "id": "CPAY",
+        "name": "CPAY Corp",
+        "symbol": "CPAY",
+        "price": "$356.11",
+        "change": "+2.49%",
+        "prob": "4.5%",
+        "reason_text": "52주 신고가 돌파까지 불과 3.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 204,
+        "id": "ALL",
+        "name": "ALL Corp",
+        "symbol": "ALL",
+        "price": "$221.63",
+        "change": "+0.28%",
+        "prob": "4.5%",
+        "reason_text": "52주 신고가 돌파까지 불과 2.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 205,
+        "id": "DRS",
+        "name": "DRS Corp",
+        "symbol": "DRS",
+        "price": "$48.53",
+        "change": "+5.16%",
+        "prob": "4.5%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 206,
+        "id": "CFG",
+        "name": "CFG Corp",
+        "symbol": "CFG",
+        "price": "$67.65",
+        "change": "+5.74%",
+        "prob": "4.5%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.9% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 207,
+        "id": "ABBV",
+        "name": "ABBV Corp",
+        "symbol": "ABBV",
+        "price": "$227.73",
+        "change": "+0.22%",
+        "prob": "4.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 208,
+        "id": "BBIO",
+        "name": "BBIO Corp",
+        "symbol": "BBIO",
+        "price": "$66.80",
+        "change": "-1.20%",
+        "prob": "4.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 209,
+        "id": "CNA",
+        "name": "CNA Corp",
+        "symbol": "CNA",
+        "price": "$45.12",
+        "change": "+3.34%",
+        "prob": "4.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 210,
+        "id": "CBRE",
+        "name": "CBRE Corp",
+        "symbol": "CBRE",
+        "price": "$133.41",
+        "change": "+1.89%",
+        "prob": "4.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 211,
+        "id": "BLK",
+        "name": "BLK Corp",
+        "symbol": "BLK",
+        "price": "$1032.00",
+        "change": "+3.66%",
+        "prob": "4.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 212,
+        "id": "BAC",
+        "name": "BAC Corp",
+        "symbol": "BAC",
+        "price": "$56.02",
+        "change": "+4.07%",
+        "prob": "4.3%",
+        "reason_text": "RSI 지표가 77.4를 기록하며 전체 상위 2.0%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 1.6% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 213,
+        "id": "BJ",
+        "name": "BJ Corp",
+        "symbol": "BJ",
+        "price": "$91.04",
+        "change": "+2.05%",
+        "prob": "4.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 214,
+        "id": "AWK",
+        "name": "AWK Corp",
+        "symbol": "AWK",
+        "price": "$126.31",
+        "change": "+1.48%",
+        "prob": "4.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 215,
+        "id": "DOV",
+        "name": "DOV Corp",
+        "symbol": "DOV",
+        "price": "$217.43",
+        "change": "+1.24%",
+        "prob": "4.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 216,
+        "id": "AES",
+        "name": "AES Corp",
+        "symbol": "AES",
+        "price": "$14.68",
+        "change": "+0.07%",
+        "prob": "4.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 217,
+        "id": "BA",
+        "name": "BA Corp",
+        "symbol": "BA",
+        "price": "$219.05",
+        "change": "+1.67%",
+        "prob": "4.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 218,
+        "id": "AMP",
+        "name": "AMP Corp",
+        "symbol": "AMP",
+        "price": "$459.13",
+        "change": "+0.98%",
+        "prob": "4.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 219,
+        "id": "CACI",
+        "name": "CACI Corp",
+        "symbol": "CACI",
+        "price": "$519.40",
+        "change": "-2.26%",
+        "prob": "4.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 220,
+        "id": "BMO",
+        "name": "BMO Corp",
+        "symbol": "BMO",
+        "price": "$168.30",
+        "change": "+2.39%",
+        "prob": "4.0%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.6% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 221,
+        "id": "AER",
+        "name": "AER Corp",
+        "symbol": "AER",
+        "price": "$140.00",
+        "change": "+2.23%",
+        "prob": "3.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 222,
+        "id": "AON",
+        "name": "AON Corp",
+        "symbol": "AON",
+        "price": "$335.31",
+        "change": "+2.06%",
+        "prob": "3.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 223,
+        "id": "C",
+        "name": "C Corp",
+        "symbol": "C",
+        "price": "$139.83",
+        "change": "+5.56%",
+        "prob": "3.8%",
+        "reason_text": "RSI 지표가 74.7를 기록하며 전체 상위 2.7%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 0.9% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 224,
+        "id": "CHD",
+        "name": "CHD Corp",
+        "symbol": "CHD",
+        "price": "$97.56",
+        "change": "+0.85%",
+        "prob": "3.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 225,
+        "id": "CINF",
+        "name": "CINF Corp",
+        "symbol": "CINF",
+        "price": "$169.01",
+        "change": "+2.25%",
+        "prob": "3.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 2.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 226,
+        "id": "AIG",
+        "name": "AIG Corp",
+        "symbol": "AIG",
+        "price": "$75.24",
+        "change": "+0.33%",
+        "prob": "3.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 227,
+        "id": "ECL",
+        "name": "ECL Corp",
+        "symbol": "ECL",
+        "price": "$265.41",
+        "change": "+2.88%",
+        "prob": "3.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 228,
+        "id": "BNS",
+        "name": "BNS Corp",
+        "symbol": "BNS",
+        "price": "$83.99",
+        "change": "+4.26%",
+        "prob": "3.3%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.2% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 229,
+        "id": "DVN",
+        "name": "DVN Corp",
+        "symbol": "DVN",
+        "price": "$44.99",
+        "change": "+2.33%",
+        "prob": "3.3%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 230,
+        "id": "AGNC",
+        "name": "AGNC Corp",
+        "symbol": "AGNC",
+        "price": "$10.31",
+        "change": "+1.38%",
+        "prob": "3.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 231,
+        "id": "AMGN",
+        "name": "AMGN Corp",
+        "symbol": "AMGN",
+        "price": "$355.20",
+        "change": "+1.61%",
+        "prob": "3.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 232,
+        "id": "AFG",
+        "name": "AFG Corp",
+        "symbol": "AFG",
+        "price": "$134.10",
+        "change": "+1.24%",
+        "prob": "3.1%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 233,
+        "id": "BG",
+        "name": "BG Corp",
+        "symbol": "BG",
+        "price": "$127.17",
+        "change": "+0.56%",
+        "prob": "3.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 234,
+        "id": "BKR",
+        "name": "BKR Corp",
+        "symbol": "BKR",
+        "price": "$63.14",
+        "change": "+0.88%",
+        "prob": "2.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 235,
+        "id": "CB",
+        "name": "CB Corp",
+        "symbol": "CB",
+        "price": "$328.14",
+        "change": "+0.89%",
+        "prob": "2.9%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 236,
+        "id": "ARCC",
+        "name": "ARCC Corp",
+        "symbol": "ARCC",
+        "price": "$18.78",
+        "change": "+2.50%",
+        "prob": "2.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 237,
+        "id": "AZN",
+        "name": "AZN Corp",
+        "symbol": "AZN",
+        "price": "$178.75",
+        "change": "-3.87%",
+        "prob": "2.8%",
+        "reason_text": "RSI(상대강도지수)가 39.4로 과매도 구간(하위 12.5%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 238,
+        "id": "AIT",
+        "name": "AIT Corp",
+        "symbol": "AIT",
+        "price": "$320.11",
+        "change": "+1.53%",
+        "prob": "2.8%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.9% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 239,
+        "id": "AMX",
+        "name": "AMX Corp",
+        "symbol": "AMX",
+        "price": "$27.75",
+        "change": "+11.71%",
+        "prob": "2.7%",
+        "reason_text": "최근 5일간 수익률이 전체 상위 4.0%를 기록하며 주도주 패턴을 보입니다. 52주 신고가 돌파까지 불과 2.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#단기급등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 240,
+        "id": "BIIB",
+        "name": "BIIB Corp",
+        "symbol": "BIIB",
+        "price": "$200.05",
+        "change": "+2.41%",
+        "prob": "2.7%",
+        "reason_text": "52주 신고가 돌파까지 불과 2.9% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 241,
+        "id": "CMS",
+        "name": "CMS Corp",
+        "symbol": "CMS",
+        "price": "$73.57",
+        "change": "+2.12%",
+        "prob": "2.6%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 9.4% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 242,
+        "id": "BCE",
+        "name": "BCE Corp",
+        "symbol": "BCE",
+        "price": "$24.28",
+        "change": "+0.74%",
+        "prob": "2.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 243,
+        "id": "EG",
+        "name": "EG Corp",
+        "symbol": "EG",
+        "price": "$339.40",
+        "change": "+2.10%",
+        "prob": "2.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 244,
+        "id": "BEN",
+        "name": "BEN Corp",
+        "symbol": "BEN",
+        "price": "$32.13",
+        "change": "+2.55%",
+        "prob": "2.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 245,
+        "id": "BPYPM",
+        "name": "BPYPM Corp",
+        "symbol": "BPYPM",
+        "price": "$16.66",
+        "change": "+0.42%",
+        "prob": "2.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 246,
+        "id": "DE",
+        "name": "DE Corp",
+        "symbol": "DE",
+        "price": "$577.48",
+        "change": "-1.02%",
+        "prob": "2.4%",
+        "reason_text": "RSI 지표가 70.3를 기록하며 전체 상위 4.7%의 강한 추세 모멘텀을 형성하고 있습니다.",
+        "reason_tags": [
+            "#강한모멘텀"
+        ]
+    },
+    {
+        "rank": 247,
+        "id": "COP",
+        "name": "COP Corp",
+        "symbol": "COP",
+        "price": "$116.98",
+        "change": "-0.14%",
+        "prob": "2.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 248,
+        "id": "DLR",
+        "name": "DLR Corp",
+        "symbol": "DLR",
+        "price": "$182.98",
+        "change": "-1.39%",
+        "prob": "2.4%",
+        "reason_text": "RSI(상대강도지수)가 39.8로 과매도 구간(하위 13.8%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 249,
+        "id": "CPT",
+        "name": "CPT Corp",
+        "symbol": "CPT",
+        "price": "$114.98",
+        "change": "+2.11%",
+        "prob": "2.3%",
+        "reason_text": "RSI 지표가 77.9를 기록하며 전체 상위 1.3%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 1.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 250,
+        "id": "AEG",
+        "name": "AEG Corp",
+        "symbol": "AEG",
+        "price": "$8.41",
+        "change": "+5.10%",
+        "prob": "2.3%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.7% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 251,
+        "id": "BTI",
+        "name": "BTI Corp",
+        "symbol": "BTI",
+        "price": "$62.32",
+        "change": "+4.35%",
+        "prob": "2.2%",
+        "reason_text": "RSI(상대강도지수)가 37.4로 과매도 구간(하위 10.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 252,
+        "id": "CQP",
+        "name": "CQP Corp",
+        "symbol": "CQP",
+        "price": "$63.19",
+        "change": "-1.99%",
+        "prob": "2.0%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 2.0% 수준으로 폭발하며 강력한 매수세가 확인됩니다.",
+        "reason_tags": [
+            "#거래량급증"
+        ]
+    },
+    {
+        "rank": 253,
+        "id": "AM",
+        "name": "AM Corp",
+        "symbol": "AM",
+        "price": "$21.67",
+        "change": "+0.70%",
+        "prob": "2.0%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 254,
+        "id": "ED",
+        "name": "ED Corp",
+        "symbol": "ED",
+        "price": "$107.74",
+        "change": "+1.39%",
+        "prob": "1.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 255,
+        "id": "ABNB",
+        "name": "ABNB Corp",
+        "symbol": "ABNB",
+        "price": "$132.28",
+        "change": "-0.94%",
+        "prob": "1.7%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 256,
+        "id": "DTM",
+        "name": "DTM Corp",
+        "symbol": "DTM",
+        "price": "$141.44",
+        "change": "-0.13%",
+        "prob": "1.6%",
+        "reason_text": "RSI(상대강도지수)가 29.9로 과매도 구간(하위 4.0%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 257,
+        "id": "AME",
+        "name": "AME Corp",
+        "symbol": "AME",
+        "price": "$226.78",
+        "change": "+0.25%",
+        "prob": "1.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 258,
+        "id": "CVX",
+        "name": "CVX Corp",
+        "symbol": "CVX",
+        "price": "$187.22",
+        "change": "-0.05%",
+        "prob": "1.6%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 259,
+        "id": "ACGL",
+        "name": "ACGL Corp",
+        "symbol": "ACGL",
+        "price": "$91.66",
+        "change": "+0.52%",
+        "prob": "1.6%",
+        "reason_text": "RSI(상대강도지수)가 35.7로 과매도 구간(하위 7.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 260,
+        "id": "E",
+        "name": "E Corp",
+        "symbol": "E",
+        "price": "$53.50",
+        "change": "-0.56%",
+        "prob": "1.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 261,
+        "id": "BP",
+        "name": "BP Corp",
+        "symbol": "BP",
+        "price": "$42.78",
+        "change": "-0.44%",
+        "prob": "1.5%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 262,
+        "id": "AFL",
+        "name": "AFL Corp",
+        "symbol": "AFL",
+        "price": "$117.80",
+        "change": "-0.37%",
+        "prob": "1.5%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.2% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 263,
+        "id": "CHT",
+        "name": "CHT Corp",
+        "symbol": "CHT",
+        "price": "$46.09",
+        "change": "+3.43%",
+        "prob": "1.5%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.6% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 264,
+        "id": "COST",
+        "name": "COST Corp",
+        "symbol": "COST",
+        "price": "$982.35",
+        "change": "+1.08%",
+        "prob": "1.4%",
+        "reason_text": "RSI(상대강도지수)가 34.6로 과매도 구간(하위 6.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 265,
+        "id": "BMY",
+        "name": "BMY Corp",
+        "symbol": "BMY",
+        "price": "$57.13",
+        "change": "-0.24%",
+        "prob": "1.4%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 266,
+        "id": "APD",
+        "name": "APD Corp",
+        "symbol": "APD",
+        "price": "$281.62",
+        "change": "-0.26%",
+        "prob": "1.4%",
+        "reason_text": "RSI(상대강도지수)가 40.0로 과매도 구간(하위 14.5%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 267,
+        "id": "DTE",
+        "name": "DTE Corp",
+        "symbol": "DTE",
+        "price": "$147.42",
+        "change": "+1.13%",
+        "prob": "1.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 268,
+        "id": "BIP",
+        "name": "BIP Corp",
+        "symbol": "BIP",
+        "price": "$38.28",
+        "change": "-1.34%",
+        "prob": "1.4%",
+        "reason_text": "RSI(상대강도지수)가 37.5로 과매도 구간(하위 10.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다. 52주 신고가 돌파까지 불과 4.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#과매도반등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 269,
+        "id": "CNQ",
+        "name": "CNQ Corp",
+        "symbol": "CNQ",
+        "price": "$45.30",
+        "change": "-0.88%",
+        "prob": "1.3%",
+        "reason_text": "RSI(상대강도지수)가 34.5로 과매도 구간(하위 6.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 270,
+        "id": "CTVA",
+        "name": "CTVA Corp",
+        "symbol": "CTVA",
+        "price": "$76.14",
+        "change": "-1.16%",
+        "prob": "1.2%",
+        "reason_text": "RSI(상대강도지수)가 33.9로 과매도 구간(하위 5.4%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 271,
+        "id": "ATO",
+        "name": "ATO Corp",
+        "symbol": "ATO",
+        "price": "$169.96",
+        "change": "-0.16%",
+        "prob": "1.2%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 9.1% 수준으로 폭발하며 강력한 매수세가 확인됩니다. RSI(상대강도지수)가 35.2로 과매도 구간(하위 7.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#과매도반등"
+        ]
+    },
+    {
+        "rank": 272,
+        "id": "AEP",
+        "name": "AEP Corp",
+        "symbol": "AEP",
+        "price": "$129.23",
+        "change": "+0.07%",
+        "prob": "1.2%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 273,
+        "id": "CNP",
+        "name": "CNP Corp",
+        "symbol": "CNP",
+        "price": "$42.90",
+        "change": "+0.49%",
+        "prob": "0.9%",
+        "reason_text": "52주 신고가 돌파까지 불과 3.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 274,
+        "id": "AEE",
+        "name": "AEE Corp",
+        "symbol": "AEE",
+        "price": "$109.00",
+        "change": "+0.46%",
+        "prob": "0.9%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 275,
+        "id": "DUK",
+        "name": "DUK Corp",
+        "symbol": "DUK",
+        "price": "$124.97",
+        "change": "+0.60%",
+        "prob": "0.8%",
+        "reason_text": "이동평균선 지지선과 긍정적인 기술적 지표들이 맞물려 안정적인 우상향 패턴을 나타냅니다.",
+        "reason_tags": [
+            "#안정적추세"
+        ]
+    },
+    {
+        "rank": 276,
+        "id": "BPYPN",
+        "name": "BPYPN Corp",
+        "symbol": "BPYPN",
+        "price": "$13.95",
+        "change": "+2.35%",
+        "prob": "0.8%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.3% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 277,
+        "id": "ARMK",
+        "name": "ARMK Corp",
+        "symbol": "ARMK",
+        "price": "$54.27",
+        "change": "+1.61%",
+        "prob": "0.8%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.2% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 278,
+        "id": "BK",
+        "name": "BK Corp",
+        "symbol": "BK",
+        "price": "$143.98",
+        "change": "+1.12%",
+        "prob": "0.7%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.7% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 279,
+        "id": "CET",
+        "name": "CET Corp",
+        "symbol": "CET",
+        "price": "$53.18",
+        "change": "+1.90%",
+        "prob": "0.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 280,
+        "id": "BPYPP",
+        "name": "BPYPP Corp",
+        "symbol": "BPYPP",
+        "price": "$15.47",
+        "change": "+0.27%",
+        "prob": "0.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.5% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 281,
+        "id": "CSX",
+        "name": "CSX Corp",
+        "symbol": "CSX",
+        "price": "$47.57",
+        "change": "+1.23%",
+        "prob": "0.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 282,
+        "id": "CP",
+        "name": "CP Corp",
+        "symbol": "CP",
+        "price": "$90.08",
+        "change": "+0.17%",
+        "prob": "0.4%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.6% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 283,
+        "id": "BNH",
+        "name": "BNH Corp",
+        "symbol": "BNH",
+        "price": "$15.50",
+        "change": "+0.26%",
+        "prob": "0.3%",
+        "reason_text": "52주 신고가 돌파까지 불과 4.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 284,
+        "id": "AIZ",
+        "name": "AIZ Corp",
+        "symbol": "AIZ",
+        "price": "$260.99",
+        "change": "+1.76%",
+        "prob": "0.3%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 285,
+        "id": "BNJ",
+        "name": "BNJ Corp",
+        "symbol": "BNJ",
+        "price": "$15.21",
+        "change": "+2.11%",
+        "prob": "0.3%",
+        "reason_text": "최근 거래량이 전체 분석 종목 중 상위 1.0% 수준으로 폭발하며 강력한 매수세가 확인됩니다. RSI 지표가 70.9를 기록하며 전체 상위 4.4%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 2.3% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#거래량급증",
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 286,
+        "id": "BIPJ",
+        "name": "BIPJ Corp",
+        "symbol": "BIPJ",
+        "price": "$24.60",
+        "change": "+0.24%",
+        "prob": "0.2%",
+        "reason_text": "52주 신고가 돌파까지 불과 3.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 287,
+        "id": "CCZ",
+        "name": "CCZ Corp",
+        "symbol": "CCZ",
+        "price": "$64.00",
+        "change": "-0.17%",
+        "prob": "0.2%",
+        "reason_text": "52주 신고가 돌파까지 불과 2.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 288,
+        "id": "BPYPO",
+        "name": "BPYPO Corp",
+        "symbol": "BPYPO",
+        "price": "$15.11",
+        "change": "+0.73%",
+        "prob": "0.2%",
+        "reason_text": "52주 신고가 돌파까지 불과 2.7% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 289,
+        "id": "AGNCP",
+        "name": "AGNCP Corp",
+        "symbol": "AGNCP",
+        "price": "$25.24",
+        "change": "+0.64%",
+        "prob": "0.1%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 290,
+        "id": "AQNB",
+        "name": "AQNB Corp",
+        "symbol": "AQNB",
+        "price": "$25.57",
+        "change": "+0.19%",
+        "prob": "0.1%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.4% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 291,
+        "id": "APOS",
+        "name": "APOS Corp",
+        "symbol": "APOS",
+        "price": "$25.47",
+        "change": "+0.24%",
+        "prob": "0.1%",
+        "reason_text": "RSI(상대강도지수)가 36.0로 과매도 구간(하위 8.1%)에 진입하여 AI가 단기 기술적 반등 확률을 높게 평가했습니다. 52주 신고가 돌파까지 불과 1.7% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#과매도반등",
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 292,
+        "id": "AGNCL",
+        "name": "AGNCL Corp",
+        "symbol": "AGNCL",
+        "price": "$24.95",
+        "change": "-0.78%",
+        "prob": "0.1%",
+        "reason_text": "52주 신고가 돌파까지 불과 1.1% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 293,
+        "id": "AGNCO",
+        "name": "AGNCO Corp",
+        "symbol": "AGNCO",
+        "price": "$25.56",
+        "change": "+0.14%",
+        "prob": "0.1%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.3% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 294,
+        "id": "DUKB",
+        "name": "DUKB Corp",
+        "symbol": "DUKB",
+        "price": "$23.54",
+        "change": "+0.22%",
+        "prob": "0.1%",
+        "reason_text": "52주 신고가 돌파까지 불과 2.8% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 295,
+        "id": "AGNCN",
+        "name": "AGNCN Corp",
+        "symbol": "AGNCN",
+        "price": "$25.94",
+        "change": "+0.46%",
+        "prob": "0.1%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.0% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 296,
+        "id": "AGNCM",
+        "name": "AGNCM Corp",
+        "symbol": "AGNCM",
+        "price": "$25.12",
+        "change": "+0.24%",
+        "prob": "0.0%",
+        "reason_text": "52주 신고가 돌파까지 불과 0.2% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#신고가근접"
+        ]
+    },
+    {
+        "rank": 297,
+        "id": "EA",
+        "name": "EA Corp",
+        "symbol": "EA",
+        "price": "$203.27",
+        "change": "+0.13%",
+        "prob": "0.0%",
+        "reason_text": "RSI 지표가 72.4를 기록하며 전체 상위 3.7%의 강한 추세 모멘텀을 형성하고 있습니다. 52주 신고가 돌파까지 불과 0.6% 남겨두고 있어 강력한 상방 돌파 여력이 기대됩니다.",
+        "reason_tags": [
+            "#강한모멘텀",
+            "#신고가근접"
+        ]
+    }
+]
