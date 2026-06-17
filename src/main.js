@@ -234,7 +234,7 @@ async function fetchRecommendations(mode = 'auto') {
   if (introCrawl) introCrawl.innerHTML = '<div class="intro-title"><p>AI Prediction</p><h1>데이터 분석 중...</h1><p>잠시만 기다려주세요.</p></div>';
 
   // Update button UI
-  if (mode === '2026-05-15') {
+  if (mode === 'auto') {
     if (btnWeekly) btnWeekly.classList.add('active');
     if (btnToday) btnToday.classList.remove('active');
   } else {
@@ -346,11 +346,11 @@ if (aiSearchBtn) {
 }
 
 
-if (btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('2026-05-15'); });
+if (btnWeekly) btnWeekly.addEventListener('click', () => { fetchRecommendations('auto'); });
 if (btnToday) btnToday.addEventListener('click', () => { fetchRecommendations('today'); });
 
 // Initial fetch
-fetchRecommendations('2026-05-15');
+fetchRecommendations('auto');
 
 
 function finishIntro() {
