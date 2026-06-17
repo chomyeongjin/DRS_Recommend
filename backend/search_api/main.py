@@ -198,12 +198,12 @@ def ingest(
         # 2) 가격 다운로드(견고 버전 우선)
         try:
             from .data_io import download_ohlc_robust
-            raw, ok = download_ohlc_robust(tickers, period="2y")
+            raw, ok = download_ohlc_robust(tickers, period="5y")
             if raw is None or raw.empty:
                 raise HTTPException(500, "가격 데이터를 가져오지 못했습니다.")
         except ImportError:
             logger.warning("download_ohlc_robust not found, using fallback")
-            raw = download_ohlc(tickers, period="2y")
+            raw = download_ohlc(tickers, period="5y")
             ok = tickers
 
         # 3) MA20 계산 (슬라이싱 없이 전체 기간)

@@ -14,7 +14,7 @@ DATA_DIR.mkdir(exist_ok=True)
 MIN_MA_POINTS = 25  # MA20 계산에 필요한 최소 데이터 포인트 (20 + 5 여유)
 MA_WINDOW = 20      # 이동평균 윈도우 크기
 
-def download_ohlc(tickers: List[str], period: str = "2y") -> pd.DataFrame:
+def download_ohlc(tickers: List[str], period: str = "5y") -> pd.DataFrame:
     """
     yfinance를 통해 OHLC 데이터 다운로드
 
