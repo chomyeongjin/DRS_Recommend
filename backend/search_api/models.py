@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 from typing import List
 
 class IngestRequest(BaseModel):
-    days: int = 365  # 1년
+    days: int = 1825  # 5년 (데이터 수집 기본값)
 
 class SketchRequest(BaseModel):
     y: List[float] = Field(..., min_items=10)  # 스케치 y값 (0~1 권장)
